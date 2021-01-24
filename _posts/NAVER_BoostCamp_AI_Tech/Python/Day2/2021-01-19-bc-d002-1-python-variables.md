@@ -6,7 +6,7 @@ tags: [Python] # CS, 운영체제, Python
 ---
 
 
-## **[DAY 2] Python 변수**
+## **[DAY 2] Variables**
 
 ---
 

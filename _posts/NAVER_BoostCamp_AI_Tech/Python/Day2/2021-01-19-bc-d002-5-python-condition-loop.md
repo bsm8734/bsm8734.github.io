@@ -6,7 +6,7 @@ tags: [Python] # CS, 운영체제, Python
 ---
 
 
-## **[DAY 2] 파이썬 Conditionals and Loops**
+## **[DAY 2] Conditionals and Loops**
 
 ---
 

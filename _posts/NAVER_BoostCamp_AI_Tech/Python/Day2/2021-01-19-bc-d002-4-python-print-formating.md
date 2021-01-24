@@ -6,7 +6,7 @@ tags: [Python] # CS, 운영체제, Python
 ---
 
 
-## **[DAY 2] 파이썬 Print Formatting(I/O)**
+## **[DAY 2] Print Formatting(I/O)**
 
 ---
 
