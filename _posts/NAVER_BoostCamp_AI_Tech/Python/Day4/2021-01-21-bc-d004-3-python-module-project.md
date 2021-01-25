@@ -200,3 +200,82 @@ tags: [Python] # CS, 운영체제, Python
 <br>
 
 ---
+
+### **가상환경** (Virtual Environment)
+
+- 오픈소스 라이브러리 사용하기
+- 각 프로젝트에 맞춰서 환경을 새로 설정할 수 있음
+- 프로젝트 진행 시 필요한 패키지만 설치하는 환경
+- 기본 인터프리터 + 프로젝트 종류별 패키지 설치
+  - ex) 웹 프로젝트, 데이터 분석 프로젝트
+- 각각 패키지 관리할 수 있는 기능
+- 다양한 패키지 관리 도구를 사용함
+- 대표적인 도구 virtualenv와 conda가 있음
+- **virtualenv** vs **conda**
+  - virtualenv + pip conda
+    - 가장 대표적인 가상환경 관리 도구
+    - 레퍼런스+패키지 개수
+    - pip로 설치, 유용
+    - compile된 코드가 들어가있지 않은 경우 있음
+  - conda
+    - 상용 가상환경도구
+    - miniconda 기본 도구
+    - 설치의 용이성
+    - Windows에서 장점
+    - 컴파일 된 도구 존재(C기반의 python에 유리)
+
+---
+
+#### **Anaconda**
+
+##### **conda 명령어**
+
+- 가상환경 생성
+  - `conda create -n my_project python=3.8`
+  - `conda create -n (가상환경이름) python=(파이썬버전)`
+- 가상환경 호출
+  - `conda activate my_project`
+  - `conda activate (가상환경이름)`
+- 가상환경해제
+  - `conda deactivate`
+- 패키지 설치
+  - `conda install matplotlib`
+  - `conda install <패키지명>`
+  - <패키지명>: 설치하고자 하는 패키지명 입력
+- `conda` vs `pip`
+  - Windows에서는 `conda`
+    - Windows에서는 컴파일된C 라이브러리 설치 필요
+    - conda는 컴파일된 c 라이브러리 파일을 자동으로 설치한다는 장점이 존재
+  - linux, mac에서는 `conda or pip`
+- `matplotlib`
+  - matplotlib 활용한 그래프 표시
+  - 대표적인 파이썬 그래프 관리 패키지
+  - 엑셀과 같은 그래프들을 화면에 표시함
+  - 다양한 데이터 분석 도구들과 함께 사용됨
+- `tqdm`
+  - 프로그램 돌릴때, 내가 지금 어떤 상태에 있는지 확인 필요
+  - 긴 반복문 수행시 용이
+  - 특히 대용량 데이터
+  - 확인할 수 있는 코드 돌리는 게 유리
+
+  ```python
+  conda install matplotlib
+  conda install tqdm
+  ```
+
+  ```python
+    # matplotlib
+    import matplotlib.pyplot as plt
+    plt.plot([1,2,3,4])
+    plt.ylabel('some numbers')
+    plt.show()
+  ```
+
+  ```python
+    # tqdm
+    from tqdm import tqdm
+    import time
+    for i in tqdm(range(100000)):
+      if i % 1000 == 0:
+        time.sleep(1)
+  ```
