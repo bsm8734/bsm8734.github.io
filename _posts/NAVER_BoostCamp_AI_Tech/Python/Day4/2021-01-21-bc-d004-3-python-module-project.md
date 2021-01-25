@@ -241,7 +241,7 @@ tags: [Python] # CS, 운영체제, Python
 - 패키지 설치
   - `conda install matplotlib`
   - `conda install <패키지명>`
-  - <패키지명>: 설치하고자 하는 패키지명 입력
+  - 패키지명: 설치하고자 하는 패키지명 입력
 - `conda` vs `pip`
   - Windows에서는 `conda`
     - Windows에서는 컴파일된C 라이브러리 설치 필요
@@ -264,18 +264,18 @@ tags: [Python] # CS, 운영체제, Python
   ```
 
   ```python
-    # matplotlib
-    import matplotlib.pyplot as plt
-    plt.plot([1,2,3,4])
-    plt.ylabel('some numbers')
-    plt.show()
+  # matplotlib
+  import matplotlib.pyplot as plt
+  plt.plot([1,2,3,4])
+  plt.ylabel('some numbers')
+  plt.show()
   ```
 
   ```python
-    # tqdm
-    from tqdm import tqdm
-    import time
-    for i in tqdm(range(100000)):
-      if i % 1000 == 0:
-        time.sleep(1)
+  # tqdm
+  from tqdm import tqdm
+  import time
+  for i in tqdm(range(100000)):
+    if i % 1000 == 0:
+      time.sleep(1)
   ```
