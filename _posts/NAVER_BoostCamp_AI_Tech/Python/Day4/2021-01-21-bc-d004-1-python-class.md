@@ -37,7 +37,7 @@ tags: [Python] # CS, 운영체제, Python
 ### **class 구현하기**
 
 - 축구 선수 정보를 Class로 구현하기
-rr
+
 ```python
   class SoccerPlayer(object):
     def __init__(self, name, position, back_number):
