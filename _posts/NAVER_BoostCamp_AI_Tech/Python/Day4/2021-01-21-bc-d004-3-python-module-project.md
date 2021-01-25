@@ -128,3 +128,75 @@ tags: [Python] # CS, 운영체제, Python
 <br>
 
 ---
+
+### **패키지**
+
+- 하나의 대형 프로젝트를 만드는 코드의 묶음
+- 다양한 모듈들의 합, 폴더로 연결됨
+- `__init__` , `__main__` 등 키워드 파일명이 사용됨
+- 다양한 오픈소스들이 모두 패키지로 관리됨
+
+- **Package 만들기**
+
+  1. 기능들을 세부적으로 나눠 폴더로 만듦
+  2. 각 폴더별로 필요한 모듈을 구현함
+  3. 1차 Test –python shell
+  4. *폴더별로* `__init__.py` 구성하기
+     - 현재 폴더가 패키지임을 알리는 초기화 스크립트
+     - 없을 경우 패키지로 간주하지 않음 (3.3+ 부터는 X)
+     - 하위 폴더와 py 파일(모듈)을 모두 포함함
+     - 폴더로 이루어져 있더라도, 이를 모듈처럼 다룰 수 있음
+       - 어떤 폴더 안에 있다면, from으로 부를 수 있음
+     - import와 `__all__` keyword 사용
+       - 최상위 폴더에 위치하는 `__init__.py`는 `` 이런 식으로
+
+      ```python
+        __all__= ['image', 'stage', 'sound'] # 폴더명을 나열해줌
+
+        from . import image
+        from . import stage
+        from . import sound
+      ```
+
+  5. `__main__.py` 파일만들기
+     - 보통 파이썬 패키지를 프로젝트로서 공개하게 되면, 폴더 자체를 실행 가능
+     - 폴더 실행을 위해서 main필요
+     - 다른 폴더에 존재하는 여러 모듈들을 한번에 폴더에 묶어서 처리: 패키지
+     - 이를 공유하는 것이 프로젝트
+
+      ```python
+        from stage.main import game_start
+        from stage.sub import set_stage_level
+        from image.character import show_character
+        from sound.bgm import bgm_play
+
+        if __name__ == '__main__':
+          print('hello game')
+          game_start()
+          set_stage_level(5)
+          bgm_play(10)
+          show_character()
+      ```
+
+  6. 실행하기 – 패키지 이름만으로 호출하기
+
+#### **package namespace**
+
+- Package 내에서 다른 폴더의 모듈을 부를때 상대참조로 호출하는 방법
+
+  ```python
+  # 현재 : game/
+  # >>> ls
+  # __init__.py
+  # sound/: __init__.py, bgm.py, echo.py
+  # image/: __init__.py, character.py, object.py  
+  # stage/: __init__.py, main.py, sub.py
+
+  from game.graphic.render import render_test   # 절대참조
+  from .render import render_test               # .   현재디렉토리기
+  from ..sound.echo import echo_test            # .. 부모 디렉토리 기준
+  ```
+
+<br>
+
+---
