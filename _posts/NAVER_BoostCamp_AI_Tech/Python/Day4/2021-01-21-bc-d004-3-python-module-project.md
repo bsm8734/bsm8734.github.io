@@ -39,25 +39,25 @@ tags: [Python] # CS, 운영체제, Python
 - **같은 폴더/디렉토리**에 Module에 해당하는 .py 파일과, 사용하는 .py을 저장한 후
 - import 문을 사용해서 module을 호출(로딩)
 
-```python
-#########################################
-# fah_converter.py
-def covert_c_to_f(celcius_value):
-  return celcius_value * 9.0 / 5 + 32
+  ```python
+  #########################################
+  # fah_converter.py
+  def covert_c_to_f(celcius_value):
+    return celcius_value * 9.0 / 5 + 32
 
-#########################################3
-# module_ex.py
-import fah_converter # 불러오기, 로딩
-# 모든 코드가 메모리로 로딩이 됨
-# 접근하기 위해서 (모듈이름).(함수명) => 작동!
+  #########################################3
+  # module_ex.py
+  import fah_converter # 불러오기, 로딩
+  # 모든 코드가 메모리로 로딩이 됨
+  # 접근하기 위해서 (모듈이름).(함수명) => 작동!
 
-print ("Enter a celsius value: "),
-celsius = float(input())
-fahrenheit = fah_converter.covert_c_to_f(celsius)
-# 함수명으로 접근해서 쓸 수 있음
-print ("That's ", fahrenheit, " degrees Fahrenheit")
-##########################################
-```
+  print ("Enter a celsius value: "),
+  celsius = float(input())
+  fahrenheit = fah_converter.covert_c_to_f(celsius)
+  # 함수명으로 접근해서 쓸 수 있음
+  print ("That's ", fahrenheit, " degrees Fahrenheit")
+  ##########################################
+  ```
 
 #### namespace
 
@@ -109,22 +109,22 @@ print ("That's ", fahrenheit, " degrees Fahrenheit")
   - 2) 모듈을 import후 구글 검색 또는 Help 쓰기
   - 3) [공식 문서](https://docs.python.org/3/library/)를 읽어보기
 
-```python
-  """1 부터 100까지 특정 난수를 뽑기"""
-  #난수
-  import random
-  print (random.randint (0,100)) # 0~100사이의 정수 난수를 생성
-  print (random.random()) # 일반적인 난수 생성
+  ```python
+    """1 부터 100까지 특정 난수를 뽑기"""
+    #난수
+    import random
+    print (random.randint (0,100)) # 0~100사이의 정수 난수를 생성
+    print (random.random()) # 일반적인 난수 생성
 
-  #시간
-  import time
-  print(time.localtime()) # 현재 시간 출력
+    #시간
+    import time
+    print(time.localtime()) # 현재 시간 출력
 
-  #웹
-  import urllib.request
-  response = urllib.request.urlopen("http://thetemlab.io")
-  print(response.read())
-```
+    #웹
+    import urllib.request
+    response = urllib.request.urlopen("http://thetemlab.io")
+    print(response.read())
+  ```
 
 ### 패키지
 
@@ -249,10 +249,11 @@ print ("That's ", fahrenheit, " degrees Fahrenheit")
   - 특히 대용량 데이터
   - 확인할 수 있는 코드 돌리는 게 유리
 
-```
+```bash
   conda install matplotlib
   conda install tqdm
 ```
+
 ```python
   # matplotlib
   import matplotlib.pyplot as plt
@@ -260,6 +261,7 @@ print ("That's ", fahrenheit, " degrees Fahrenheit")
   plt.ylabel('some numbers')
   plt.show()
 ```
+
 ```python
   # tqdm
   from tqdm import tqdm
