@@ -12,8 +12,8 @@ use_math: True
 ---
 
 - 이전 강의: 데이터를 선형모델로 해석하는 방법
-  - [Easy Ver.](/assets/img/sources/https://bsm8734.github.io/posts/bc-d007-1-aimath-gradient-descent-easy/)
-  - [Hard Ver.](/assets/img/sources/https://bsm8734.github.io/posts/bc-d007-2-aimath-gradient-descent-hard/)  
+  - [Easy Ver.](https://bsm8734.github.io/posts/bc-d007-1-aimath-gradient-descent-easy/)
+  - [Hard Ver.](https://bsm8734.github.io/posts/bc-d007-2-aimath-gradient-descent-hard/)  
   ![linear model](/assets/img/sources/2021-01-27-23-30-01.png)  
     - `min`식을 최소화 시키는 $\beta$ 찾기
 <br>
