@@ -1,5 +1,5 @@
 ---
-title: "[부스트캠프 AI Tech / Day7] Math_AI 딥러닝 학습방법 이해하기"
+title: "[부스트캠프 AI Tech / Day9] Math_AI 딥러닝 학습방법 이해하기"
 date: 2020-01-27 20:20:00 +0800
 categories: [네이버 부스트캠프 AI Tech, Math_AI] # Python, Math_AI
 tags: [Math] # CS, 운영체제, Python, today, Math
