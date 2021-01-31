@@ -1,6 +1,6 @@
 ---
-title: "[부스트캠프 AI Tech / Day5] 파이썬 Log"
-date: 2020-01-22 20:30:00 +0900
+title: "[부스트캠프 AI Tech / Day5] 파이썬 Log Handling"
+date: 2020-01-22 20:33:00 +0900
 categories: [네이버 부스트캠프 AI Tech, Python] # Python
 tags: [Python] # CS, 운영체제, Python
 ---
@@ -28,7 +28,7 @@ tags: [Python] # CS, 운영체제, Python
 - 모듈별로 별도의 logging을 남길필요도 있음
 - 이러한 기능을 체계적으로 지원하는 모듈이 필요함
 
-### logging 모듈
+### **logging 모듈**
 
 - Python의 기본 Log 관리 모듈
 
