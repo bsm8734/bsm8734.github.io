@@ -1,6 +1,6 @@
 ---
 title: "[부스트캠프 AI Tech / Day0] Today"
-date: 2020-01-00 20:31:00 +0900
+date: 2020-01-00 22:31:00 +0900
 categories: [네이버 부스트캠프 AI Tech, Today] # Python
 tags: [today] # CS, 운영체제, Python
 ---
@@ -8,30 +8,46 @@ tags: [today] # CS, 운영체제, Python
 
 ## **피어세션 정리**
 
--
+### 질문
+
+- `엠제이` & `펭귄` 가능도함수의 모양 [질문](https://github.com/boostcamp-ai-tech-4/peer-session/issues/44)
+- '엠제이' "딥러닝에서 최대가능도 추정법" 식에 대한 [질문](https://github.com/boostcamp-ai-tech-4/peer-session/issues/45)
+- `샐리` 최대가능도 함수는 정규분포를 따르는가?
+  ➡ NO [참고링크](https://datascienceschool.net/02%20mathematics/09.02%20%EC%B5%9C%EB%8C%80%EA%B0%80%EB%8A%A5%EB%8F%84%20%EC%B6%94%EC%A0%95%EB%B2%95.html)
+
+### [AI Math 7강] [further question](https://www.edwith.org/bcaitech1/lecture/339608)
+
+- 1 번
+  - ![image](https://user-images.githubusercontent.com/26226101/106432772-87c93980-64b2-11eb-847c-db76e7ed6185.png)
+- 2 번
+  - 어떤 확률을 구할 때 전체 데이터에 대한 모수를 알기는 어려움
+  - 이 때, 표본을 통해 모집단의 모수를 추정할 수 있는데, 가능도는 표본(데이터) 를 통해 얻어낸 모수와 실제 모수가 얼마나 가까울지에 대한 정도를 나타냄
+  - 확률 대신 가능도를 사용하면 전체 데이터 대신 적은 데이터로 모수를 파악할 수 있는 것이 장점
+- 3 번
+  - theta는 동전을 앞면이 나올 확률,  동전을 10번 던졌을때 나오는 확률분포
 
 ---
 
 ## **과제 진행 상황**
 
 - 과제 현황
-  - [X] assignment
-  - [ ] assignment
+  - [X] (퀴즈) 베이즈 통계학 맛보기 1~5
+  - [ ] MLP Assignment
 
 ---
 
 ## **과제 결과물에 대한 정리**
 
--
+- 미완
 
 ---
 
 ## **TIL (Today I Learned)**
 
--
+- 가능도함수에서 극대를 찾으면 최대를 찾을 수 있을 것이라 당연하게 생각했는데, 팀원의 "local minima에 빠질수도있지 않을까" 라는 질문을 통해서 다시 공부할 수 있는 시간을 가졌음
 
 ---
 
 ## **오늘의 한마디**
 
-- 
+- 설명을 그대로 받아들이지말고 "왜?"라는 질문 던지기
