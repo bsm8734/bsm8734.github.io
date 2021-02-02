@@ -7,14 +7,11 @@ use_math: True
 ---
 
 
-## VS code에서 colab 실행
+## **VS code에서 colab 실행**
 
 ---
 
-- [ngrok](https://dashboard.ngrok.com/get-started/setup) 들어가서
-  `./ngrok authtoken ( 얻기 )`
-
-### Colab
+### **Colab**
 
 - 다음의 코드를 실행
   `!pip install colab-ssh --upgrade`
@@ -22,7 +19,7 @@ use_math: True
   `launch_ssh_cloudflared(password="패스워드")`
 - **VSCode Remote SSH** 에서 url 복사
 
-### VS Code
+### **VS Code**
 
 - ctrl + shift + P
 - `Remote-SSH: Connect to Host...` 선택
@@ -30,6 +27,9 @@ use_math: True
 - open folder (`/content/drive/MyDrive/Colab Notebooks/`)
 
 ---
+
+- [ngrok](https://dashboard.ngrok.com/get-started/setup) 들어가서
+  `./ngrok authtoken ( 얻기 )`
 
 ```python
 NGROK_TOKEN = '토큰' # ngrok 토큰
