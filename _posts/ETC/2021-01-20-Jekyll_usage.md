@@ -1,10 +1,20 @@
-# Jekyll로 블로그 제작
+---
+title: "[ETC] Jekyll 블로그 만들기"
+date: 2020-01-20 19:30:00 +0800
+categories: [ETC, Jekyll] # Python, Math_AI, ETC, Jekyll
+tags: [Jekyll, Ruby] # CS, 운영체제, Python, today, Math, Jekyll, Ruby
+---
 
-##### 환경
+
+## Jekyll로 블로그 제작
+
+--
+
+### 환경
 
 - Windows
 
-##### 지킬(Jekyll)
+### 지킬(Jekyll)
 
 - 정적 사이트 생성기
 - 마크다운 포스트 작성하면 yaml 헤더에 따라서 html 파일 생성
@@ -86,16 +96,18 @@
 
 ### 8. 초기화 및 설정(Git)
 
-Chirpy Theme의 README(tutorial) 내용 참고
+- Chirpy Theme의 README(tutorial) 내용 참고
 - 로컬저장소 위치에 가서 `tools/init.sh` 실행 
   - init.sh를 실행하면 .travis.xml과 _post폴더의 문서와 docs폴더가 삭제되는 것을 확인할 수 있음
   - `init.sh` 전/후로 `ls` 명령어 찍어서 파일 비교해보기!
 - add-commit-push
 
-```bash
-  $ git add --all
-  $ git commit -m "initialize"
-  $ git push -u origin master
+```python
+"""
+$ git add --all
+$ git commit -m "initialize"
+$ git push -u origin master
+"""
 ```
 
 - 초기화, 푸시 다 끝내고, 조금 인내심을 가지고... **기다리면** 깃허브에 gh-pages라는 브랜치가 생김
