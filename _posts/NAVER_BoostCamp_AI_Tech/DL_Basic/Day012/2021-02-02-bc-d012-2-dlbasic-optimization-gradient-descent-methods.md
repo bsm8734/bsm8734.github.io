@@ -81,6 +81,11 @@ use_math: True
 - 가장 기본적인 방법: lr(learning rate)만큼 곱해서 빼줌
 - learning rate 적절히 잡기가 어려움
 
+> squared loss를 활용하게 되면, 큰 loss를 제곱해서 증폭시킴(MSE)
+> ➡ 많이 틀리는 부분을 더 잘 맞추게 됨
+> ➡ 상대적으로 덜 틀리는 부분에 대해서는 덜 집중하게 됨
+> ➡ 그래서 아주 큰 outlier가 껴있다면 MSE를 사용하는것이 좋지 않음
+
 ---
 
 ### **Momentum**
@@ -93,6 +98,13 @@ use_math: True
 - **모멘텀이 포함된 gradient로 업데이트** 시키는 것
 - 장점: **한번 흐르던 방향을 어느정도 유지**시켜줄 수 있음(다음 회차의 gradient가 조금 다르더라도)
   - ➡ gradient가 굉장히 오락가락하는 경우에도, 어느정도 잘 학습된 결과를 가져옴
+
+> **minibatch training에서 모멘텀이 좋은 이유**
+> ✔ 모멘텀: "이전의 gradient를 활용(반영)해서 다음번에도 쓰겠다" ➡ 데이터를 한번에 많이 보는 효과!
+> ➡ 흘러온 gradient 정보가 다음에 쓰이지 않으면, 하나의 배치는 단순히 작은 영역에 영향을 미치는 데이터로서 활용됨
+> ➡ 반면, SGD만 있다면, 많은 iteration이 있어야, 모든 데이터가 수렴할 때까지 갈 수 있음
+
+조금더 잘 이해해보자...
 
 ---
 
@@ -175,7 +187,7 @@ use_math: True
 
 ![26](/assets/img/sources/2021-02-03-01-37-07.png)
 
-- 이전의 방식들과 모멘텀을 동시에 활용
+- 모멘텀과 adaptive learning rate를 합친 것 ➡ 일반적으로 성능이 좋음
 - **특징**
   - **gradient의 크기가 변함에 따라서** (혹은 gradient의 square의 크기에 따라서) **adaptive하게 learning rate를 바꿈**
   - 이전의 gradient 정보에 해당하는 모멘텀 두개를 합친 것
@@ -185,3 +197,7 @@ use_math: True
 > - $\beta_2$: Gradient Squares에 대한 EMA 정보
 > - $\eta$ (=lr, learning rate)
 > - $\epsilon$ (=입실론)
+
+> **adaptive learning rate**
+> 어느 파라미터에서는 lr을 줄이고 어떤 파라미터의 lr은 높일 수 있음
+> 따라서, 같은 base learning rate를 가지고 있다 하더라도 훨씬 더 빠르게 학습 가능

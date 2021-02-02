@@ -25,7 +25,7 @@ use_math: True
 
 ### **Early stopping**
 
-![29](2021-02-03-02-58-57.png)
+![29](/assets/img/sources/2021-02-03-02-58-57.png)
 
 - 학습을 멈추기
 - loss가 어느정도 오르기 시작할 때 멈추기
@@ -36,7 +36,7 @@ use_math: True
 
 ### **Parameter norm penalty**
 
-![30](2021-02-03-02-59-14.png)
+![30](/assets/img/sources/2021-02-03-02-59-14.png)
 
 - = weight decay
 - Neural Network 파라미터가 너무 커지지않게 해주는 것
@@ -49,7 +49,7 @@ use_math: True
 
 ### **Data augmentation**
 
-![31](2021-02-03-02-59-49.png)
+![31](/assets/img/sources/2021-02-03-02-59-49.png)
 
 - 데이터가 많을 수록 좋음
 - 딥러닝말고 다른 방법론들이 더 잘될 때가 있었음
@@ -57,7 +57,7 @@ use_math: True
 - ➡ 근데 Universal Approximate Theory등에 의해 **NN은 굉장히 많은 데이터를 표현할 수 있는 표현력을 가짐**
 - 문제는, 데이터 많이 없을 때!
 
-![32](2021-02-03-03-00-09.png)
+![32](/assets/img/sources/2021-02-03-03-00-09.png)
 
 - Data Augmentation?
   - 어떻게든 **데이터를 늘리는 것**
@@ -71,7 +71,7 @@ use_math: True
 
 ### **Noise robustness**
 
-![33](2021-02-03-03-00-26.png)
+![33](/assets/img/sources/2021-02-03-03-00-26.png)
 
 - **노이즈를 단순히 input에만 주는게 아닌, NN의 $W$에도 집어넣음**
 - weight 학습시, NN이 weight를 매번 흔들어주면 성능이 더 잘나온다는 실험적인 결과가 존재
@@ -87,9 +87,9 @@ use_math: True
   - ➡ 목적: 두개의 클래스를 잘 구분할 수 있는 plain, decision boundary를 찾아서, 그것을 가지고 분류를 잘 되게 하는 것
 - 앞서 언급한, Decision Boundary를 부드럽게 만들어 주는 효과가 있음
 
-![34](2021-02-03-03-00-40.png)
+![34](/assets/img/sources/2021-02-03-03-00-40.png)
 
-![35](2021-02-03-03-00-56.png)
+![35](/assets/img/sources/2021-02-03-03-00-56.png)
 
 - **cut out**: 이미지 한장이 주어지면 일정 영역을 빼버림
 - **cut mix**: 이미지 특정 영역을 대체 (자연스럽게 해주는게 아니라)
@@ -102,7 +102,7 @@ use_math: True
 
 ### **Dropout**
 
-![36](2021-02-03-03-01-10.png)
+![36](/assets/img/sources/2021-02-03-03-01-10.png)
 
 - 추론(inference) 할 때에는 정해진 dropout ratio(p)만큼 뉴런의 비율을 줄여줌(줄인다 = 0으로 만든다)
 - ➡ 각각의 뉴런이 robust한 feature를 잡을 수 있음
@@ -112,7 +112,7 @@ use_math: True
 
 ### **Batch normalization**
 
-![37](2021-02-03-03-01-21.png)
+![37](/assets/img/sources/2021-02-03-03-01-21.png)
 
 - Internal Covariate Shift - 논란(이를 줄여야함)
 
@@ -127,7 +127,7 @@ use_math: True
 
 근데 이후의 논문들은 동의하지 않는 경우도 많음
 
-![38](2021-02-03-03-01-35.png)
+![38](/assets/img/sources/2021-02-03-03-01-35.png)
 
 1. Batch Norm ➡ 레이어 전체에 대해서 줄임
 2. Layer Norm ➡ 레이어 줄이는거
@@ -140,3 +140,5 @@ use_math: True
 > - 다양한 normalization technic을 알 수 있음
 > - 각각의 장단점에 대한 실험적 결과를 볼 수 있음
 > - 간단한 분류 문제를 풀때에 있어서만큼은 Batch Norm을 활용하는게, 많은 경우에 성능을 올릴 수 있다고 알려져있음
+
+✔ 확실한 아이디어가 없다면 adam을 채택하는 것이 현명한 선택 ✔ 
