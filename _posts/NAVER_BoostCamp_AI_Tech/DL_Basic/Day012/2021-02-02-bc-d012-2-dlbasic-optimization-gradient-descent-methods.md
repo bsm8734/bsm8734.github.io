@@ -68,9 +68,9 @@ use_math: True
 - RMSprop
 - Adam
 
-> loss function 정의하고 나면, 편미분을 손으로 계산하지 않고, Automatic Differentiation(자동미분계산) 사용
-> tensorflow, pytorch... 등은 모두 자동미분을 지원
-> 이제 optimizer를 골라줘야 하므로, 각각이 왜 발전했는지, 어떤 성질을 가지는지 알아야함
+> loss function 정의하고 나면, 편미분을 손으로 계산하지 않고, Automatic Differentiation(자동미분계산) 사용  
+> tensorflow, pytorch... 등은 모두 자동미분을 지원  
+> 이제 optimizer를 골라줘야 하므로, 각각이 왜 발전했는지, 어떤 성질을 가지는지 알아야함  
 
 ### **(Stochastic) Gradient Descent**
 
@@ -81,10 +81,10 @@ use_math: True
 - 가장 기본적인 방법: lr(learning rate)만큼 곱해서 빼줌
 - learning rate 적절히 잡기가 어려움
 
-> squared loss를 활용하게 되면, 큰 loss를 제곱해서 증폭시킴(MSE)
-> ➡ 많이 틀리는 부분을 더 잘 맞추게 됨
-> ➡ 상대적으로 덜 틀리는 부분에 대해서는 덜 집중하게 됨
-> ➡ 그래서 아주 큰 outlier가 껴있다면 MSE를 사용하는것이 좋지 않음
+> squared loss를 활용하게 되면, 큰 loss를 제곱해서 증폭시킴(MSE)  
+> ➡ 많이 틀리는 부분을 더 잘 맞추게 됨  
+> ➡ 상대적으로 덜 틀리는 부분에 대해서는 덜 집중하게 됨  
+> ➡ 그래서 아주 큰 outlier가 껴있다면 MSE를 사용하는것이 좋지 않음  
 
 ---
 
@@ -100,9 +100,9 @@ use_math: True
   - ➡ gradient가 굉장히 오락가락하는 경우에도, 어느정도 잘 학습된 결과를 가져옴
 
 > **minibatch training에서 모멘텀이 좋은 이유**
-> ✔ 모멘텀: "이전의 gradient를 활용(반영)해서 다음번에도 쓰겠다" ➡ 데이터를 한번에 많이 보는 효과!
-> ➡ 흘러온 gradient 정보가 다음에 쓰이지 않으면, 하나의 배치는 단순히 작은 영역에 영향을 미치는 데이터로서 활용됨
-> ➡ 반면, SGD만 있다면, 많은 iteration이 있어야, 모든 데이터가 수렴할 때까지 갈 수 있음
+> ✔ 모멘텀: "이전의 gradient를 활용(반영)해서 다음번에도 쓰겠다" ➡ 데이터를 한번에 많이 보는 효과!  
+> ➡ 흘러온 gradient 정보가 다음에 쓰이지 않으면, 하나의 배치는 단순히 작은 영역에 영향을 미치는 데이터로서 활용됨  
+> ➡ 반면, SGD만 있다면, 많은 iteration이 있어야, 모든 데이터가 수렴할 때까지 갈 수 있음  
 
 조금더 잘 이해해보자...
 
@@ -116,8 +116,8 @@ use_math: True
 - 결국, a라는 accumulate gradient가 gradient descent 역할을 함
 - gradient를 계산할 때 lookahead gradient 사용
 
-> Momentum) 현재 지금 주어져있는 파라미터에서 gradient를 계산 ➡ 그 gradient를 가지고 momentum을 accumultaion
-> NAG) 한번 이동함 ➡ a라는 현재 정보라는게 있으면, 그 방향으로 한번 가보기 ➡ 그 곳에서의 gradient를 계산한 것을 가지고 accumulate하기
+> Momentum) 현재 지금 주어져있는 파라미터에서 gradient를 계산 ➡ 그 gradient를 가지고 momentum을 accumultaion  
+> NAG) 한번 이동함 ➡ a라는 현재 정보라는게 있으면, 그 방향으로 한번 가보기 ➡ 그 곳에서의 gradient를 계산한 것을 가지고 accumulate하기  
 
 ![22](/assets/img/sources/2021-02-03-01-35-41.png)
 
@@ -162,8 +162,8 @@ use_math: True
   - 어떤 값이 있을 떄, 감마와 이전값에 감마와 곱하고, 옴 마이너스 감마 만큼을 더해주면 어느정도 time window 만큼의 값을 저장하고있는, 그것에 대한 합으로 볼 수 있게 됨
 - **EMA of difference squares**: 실제 변화시키려는 weight의 변화값 ➡ 그래서 lr이 없어도 어느정도 가능하게 만들겠다는 것
 
-> adadelta는 learning rate가 없음
-> 바꿀 수 있는 요소가 많이 없기 떄문에 잘 활용되지 않음
+> adadelta는 learning rate가 없음  
+> 바꿀 수 있는 요소가 많이 없기 떄문에 잘 활용되지 않음  
 
 모르겠음
 
@@ -176,8 +176,8 @@ use_math: True
 - $G_t$를 그냥 더하지 않고, Exponential Moving Average 더해줌
 - 그것을 분모텀에 넣고 step size를 넣음
 
-> 많이 사용
-> 논문을 통해서 제안된 것이 아닌, practical 제안
+> 많이 사용  
+> 논문을 통해서 제안된 것이 아닌, practical 제안  
 
 모르겠음
 
@@ -192,12 +192,12 @@ use_math: True
   - **gradient의 크기가 변함에 따라서** (혹은 gradient의 square의 크기에 따라서) **adaptive하게 learning rate를 바꿈**
   - 이전의 gradient 정보에 해당하는 모멘텀 두개를 합친 것
 
-> **4개의 중요 파라미터** (어떻게 조정할 지가 중요)
-> - $\beta_1$: 모멘텀을 얼마나 유지시킬 것인가
-> - $\beta_2$: Gradient Squares에 대한 EMA 정보
-> - $\eta$ (=lr, learning rate)
-> - $\epsilon$ (=입실론)
+> **4개의 중요 파라미터** (어떻게 조정할 지가 중요)  
+> - $\beta_1$: 모멘텀을 얼마나 유지시킬 것인가  
+> - $\beta_2$: Gradient Squares에 대한 EMA 정보  
+> - $\eta$ (=lr, learning rate)  
+> - $\epsilon$ (=입실론)  
 
-> **adaptive learning rate**
-> 어느 파라미터에서는 lr을 줄이고 어떤 파라미터의 lr은 높일 수 있음
-> 따라서, 같은 base learning rate를 가지고 있다 하더라도 훨씬 더 빠르게 학습 가능
+> **adaptive learning rate**  
+> 어느 파라미터에서는 lr을 줄이고 어떤 파라미터의 lr은 높일 수 있음  
+> 따라서, 같은 base learning rate를 가지고 있다 하더라도 훨씬 더 빠르게 학습 가능  

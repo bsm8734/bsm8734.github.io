@@ -11,13 +11,13 @@ use_math: True
 
 ---
 
-> **ILSVRC**(ImageNet Large-Scale Visual Recognition Challenge)
-> ▪ 해마다 1등을 한 네트워크 위주로 볼 것
-> ▪ Classification(분류)/Detection(바운딩박스 찾기)/Localization(하나의 물체를 찾는 것)/Segmentation(per pixel clssification)
-> ▪ 1,000 different categories
-> ▪ Over 1 million images
-> ▪ Training set: 456,567 images
-> ▪ 2015년부터는 human error rate인 5% 이하의 에러율을 내기 시작함
+> **ILSVRC**(ImageNet Large-Scale Visual Recognition Challenge)  
+> ▪ 해마다 1등을 한 네트워크 위주로 볼 것  
+> ▪ Classification(분류)/Detection(바운딩박스 찾기)/Localization(하나의 물체를 찾는 것)/Segmentation(per pixel clssification)  
+> ▪ 1,000 different categories  
+> ▪ Over 1 million images  
+> ▪ Training set: 456,567 images  
+> ▪ 2015년부터는 human error rate인 5% 이하의 에러율을 내기 시작함  
 
 ➡ **결론: 네트워크의 depth는 점점 깊어지고, param은 점점 줄어들고, 성능은 점점 상승**  
 
@@ -55,8 +55,8 @@ use_math: True
   - Local response normalization
   - Overlapping pooling
 
-> ✔ : 요즘에 당연히 많이 사용하는 것
-> ➡ 현재의 기준을 잡았다고 볼 수 있음 (de facto standard: 사실상 표준)
+> ✔ : 요즘에 당연히 많이 사용하는 것  
+> ➡ 현재의 기준을 잡았다고 볼 수 있음 (de facto standard: 사실상 표준)  
 
 - LRN (Local response normalization)
   - 어떤 입력공간에서 response가 많이 나오는걸 몇개를 죽여서, 최종적으로 sparse한 activation이 나오기를 기대하는 것
@@ -96,9 +96,9 @@ use_math: True
 
 ![10](/assets/img/sources/2021-02-04-02-39-11.png)
 
-> ▪ **커널의 크기가 커지면서 얻는 이점**: 하나의 convolution filter를 찍을 때, 고려되는 input의 크기가 커짐
-> ▪ **Receptive Field**: 하나의 컨볼루션 피처의 값을 얻기 위해서 고려할 수 있는 입력의 spatial dimension
-> ▪ 두 방법의 receptive field는 같음 그러나 파라미터 수에서 1.5배 차이가 남
+> ▪ **커널의 크기가 커지면서 얻는 이점**: 하나의 convolution filter를 찍을 때, 고려되는 input의 크기가 커짐  
+> ▪ **Receptive Field**: 하나의 컨볼루션 피처의 값을 얻기 위해서 고려할 수 있는 입력의 spatial dimension  
+> ▪ 두 방법의 receptive field는 같음 그러나 파라미터 수에서 1.5배 차이가 남  
 
 - **파라미터 수의 차이가 나는 이유?**
 - 레이어를 두개 쌓고, 파라미터 셋이 두배로 늘어나서, 앞이 파라미터가 더 클거같지만
@@ -163,11 +163,11 @@ use_math: True
 - 네트워크 입출력 동일(spatial field & channel 모두!)
 - 1x1 연산은 channel-wise dimension reduction으로 볼 수 있음
 
-> ▪ **결론**: <u>네트워크를 깊게 써도, 중간에 1 x 1을 잘 활용하게되면 파라미터 숫자를 줄일 수 있음</u>
-> ▪ 1x1 convolution 은 파라미터의 수를 30% 줄이는 효과가 있음!
+> ▪ **결론**: <u>네트워크를 깊게 써도, 중간에 1 x 1을 잘 활용하게되면 파라미터 숫자를 줄일 수 있음</u>  
+> ▪ 1x1 convolution 은 파라미터의 수를 30% 줄이는 효과가 있음!  
 
-> ▪ VGGNet에서 배운 것: input단의 spatial receptive field를 늘리는 차원에서 봤을 때, 3 x 3을 여러번 활용하는 것이 (11 x 11, 7 x 7, ...) 보다 나음
-> ▪ GoogLeNet 배운 것: 1 x 1을 어떻게 잘 활용해서 전체적인 파라미터 수를 줄일 수 있을 지
+> ▪ VGGNet에서 배운 것: input단의 spatial receptive field를 늘리는 차원에서 봤을 때, 3 x 3을 여러번 활용하는 것이 (11 x 11, 7 x 7, ...) 보다 나음  
+> ▪ GoogLeNet 배운 것: 1 x 1을 어떻게 잘 활용해서 전체적인 파라미터 수를 줄일 수 있을 지  
 
 #### Quiz
 
@@ -176,10 +176,10 @@ use_math: True
     2.VGGNet (19-layers) (110M)
     3.GoogLeNet (22-layers) (4M)
 
-> The answer is GoogLeNet.
+> The answer is GoogLeNet.  
 
-> ▪ 파라미터 수는 줄어들고, 깊이는 깊어지고, 성능은 좋아짐
-> ▪ 뒷단의 dense를 줄이고, 11 x 11 parameter를 줄이고, 1 x 1 conv로 feature dimension을 줄이므로 생기는 효과!
+> ▪ 파라미터 수는 줄어들고, 깊이는 깊어지고, 성능은 좋아짐  
+> ▪ 뒷단의 dense를 줄이고, 11 x 11 parameter를 줄이고, 1 x 1 conv로 feature dimension을 줄이므로 생기는 효과!  
 
 ---
 
@@ -207,22 +207,22 @@ use_math: True
 - x를 NN의 출력값에 혹은 한단짜리 conv layer에 더해주는 것
 - 원하는 것: conv layer가 학습하고자 하는 quantity은 residual(차이)!
 
-> ▪ x에 f(x)를 더해서 보내주니까, 실제로 학습하는 것은 그 차이만 학습할 것 - ?
-> ▪ x: convolution feature map
+> ▪ x에 f(x)를 더해서 보내주니까, 실제로 학습하는 것은 그 차이만 학습할 것 - ?  
+> ▪ x: convolution feature map  
 
 - 이걸 사용하지 않으면, 아무리 학습을 잘 시키더라도, 네트워크가 깊어질수록 떨어지는 성능을 보였음
 - 이걸 사용함으로서, 깊은 네트워크를 가지는 모델이 얕은 네트워크를 가지는 모델보다 학습이 더 잘 된 결과를 얻을 수 있게 됨
 - ➡ 네트워크를 더 deep하게 쌓을 수 있는 가능성을 열어줌
 
-> **제리님의 조언**
-> ▪ 레이어가 많다? = 오버피팅?
-> ▪ 레이어가 많으면 문제 ➡ 오버피팅, gradient descent
-> ▪ 차이만 학습한다?: 잔차 residual ➡ 자기 자신을 빼는 행위를 함
-> `H(x) = F(x) + x`
-> `H(x) - x = F(x)`
-> ▪ 이 논문은 수학적으로 접근한 논문임
-> ▪ (weight)레이어(= conv layer)와 활성함수와 레이어를 함수로 본 것!
-> ✔ 결국, 학습되는 것은 F(x)
+> **제리님의 조언**  
+> ▪ 레이어가 많다? = 오버피팅?  
+> ▪ 레이어가 많으면 문제 ➡ 오버피팅, gradient descent  
+> ▪ 차이만 학습한다?: 잔차 residual ➡ 자기 자신을 빼는 행위를 함  
+> `H(x) = F(x) + x`  
+> `H(x) - x = F(x)`  
+> ▪ 이 논문은 수학적으로 접근한 논문임  
+> ▪ (weight)레이어(= conv layer)와 활성함수와 레이어를 함수로 본 것!  
+> ✔ 결국, 학습되는 것은 F(x)  
 
 ![22](/assets/img/sources/2021-02-04-03-11-45.png)
 
@@ -244,8 +244,8 @@ use_math: True
   
 ![24](/assets/img/sources/2021-02-04-03-20-59.png)
 
-> ▪ 성능은 점점 증가하고 파라미터 수는 줄임과 동시에, 네트워크를 점점 깊게 쌓아서, depth, receptive field를 키우는게 전략!
-> ▪ 가장 중요한 것: 1 x 1 conv를 활용해서 channel을 줄이게 되고, 줄어든 채널에서 3 x 3 등의 연산을 함으로서, receptive field를 키우고, 다시 1 x 1 conv로 원하는 채널을 되돌려줌
+> ▪ 성능은 점점 증가하고 파라미터 수는 줄임과 동시에, 네트워크를 점점 깊게 쌓아서, depth, receptive field를 키우는게 전략!  
+> ▪ 가장 중요한 것: 1 x 1 conv를 활용해서 channel을 줄이게 되고, 줄어든 채널에서 3 x 3 등의 연산을 함으로서, receptive field를 키우고, 다시 1 x 1 conv로 원하는 채널을 되돌려줌  
 
 ---
 
@@ -276,8 +276,8 @@ use_math: True
     - 차원축소
   - 둘을 반복하는 것
 
-> ▪ 간단한 분류에서, DenseNet이 안정적인 결과를 얻어옴
-> ▪ 그래서 뭔가 할 때 ResNet, DenseNet 구조를 사용하면, 꽤나 좋은 성능을 얻을 수 있을 것!
+> ▪ 간단한 분류에서, DenseNet이 안정적인 결과를 얻어옴  
+> ▪ 그래서 뭔가 할 때 ResNet, DenseNet 구조를 사용하면, 꽤나 좋은 성능을 얻을 수 있을 것!  
 
 ---
 

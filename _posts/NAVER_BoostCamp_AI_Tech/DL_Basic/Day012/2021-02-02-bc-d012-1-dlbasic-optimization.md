@@ -44,8 +44,8 @@ use_math: True
 - 위의 뜻은, **train과 test 데이터간의 차이가 작다는 것**
 - generaliztion이 좋으며, 이 네트워크의 성능이 train data에서 나온 것 만큼, test dataset에 대해서도 비슷하게 나올 것이라는 보장이 된다는 것
 
-> ✔ 일반화의 정도와 네트워크의 성능과는 무관함
-> 네트워크의 성능이 높아도, generalization은 작을 수 있음
+> ✔ 일반화의 정도와 네트워크의 성능과는 무관함  
+> 네트워크의 성능이 높아도, generalization은 작을 수 있음  
 
 ---
 
@@ -70,14 +70,14 @@ use_math: True
 - 작은 단위인 fold로 데이터를 파티셔닝하여, 일부는 학습에 사용하고 일부는 validation에 사용하는 것을 k번 반복하는 것
 - **적은 데이터에 대한 validation의 신뢰성**을 높이는 방법(K번의 평균을 내서 계산하기 때문)
 
-> **동작방법**
-> K개의 fold로 나누어 하나의 fold를 validation dataset으로 지정
-> 나머지는 train data로 사용
-> train data로 모델을 학습하고 validation data로 얼마나 학습이 잘 되었는지 확인
-> validation fold의 대상이 되는 fold를 바꾸어가며 k번 반복
+> **동작방법**  
+> K개의 fold로 나누어 하나의 fold를 validation dataset으로 지정  
+> 나머지는 train data로 사용  
+> train data로 모델을 학습하고 validation data로 얼마나 학습이 잘 되었는지 확인  
+> validation fold의 대상이 되는 fold를 바꾸어가며 k번 반복  
 
-> test data는 고려하지 않음
-> ➡ 학습과정에 일체 참여하면 안되기 때문
+> test data는 고려하지 않음  
+> ➡ 학습과정에 일체 참여하면 안되기 때문  
 
 #### 언제사용?
 
@@ -138,10 +138,10 @@ use_math: True
 - 모든 데이터를 전부 학습시킨 모델이 더 좋을 것 같지만, 실제로는 **여러 모델이 하나의 입력에 대해 voting**을 해서 나온 출력값을 쓰는게 더 좋은 성능을 낼 때가 많음
 - 모델을 여러개 만들고, 독립적 시행
 
-> 1. 학습데이터가 고정되어 있을 때
-> 2. 모델에 쓰일 데이터는 random sampling을 통해서 뽑아서
-> 3. 여러 모델을 만들고, 어떤 식으로든 평균을 도출하는 것
-> ✔ **앙상블**이라고도 함
+> 1. 학습데이터가 고정되어 있을 때  
+> 2. 모델에 쓰일 데이터는 random sampling을 통해서 뽑아서  
+> 3. 여러 모델을 만들고, 어떤 식으로든 평균을 도출하는 것  
+> ✔ **앙상블**이라고도 함  
 
 #### **Boosting**
 

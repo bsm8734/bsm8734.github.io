@@ -25,12 +25,12 @@ use_math: True
 
 - 적용하고자하는 필터에 따라, 같은 이미지에 적용하더라도 다른 결과를 가져옴
 
-> ▪ 채널 = Dimension(차원) = Depth
-> ▪ 커널 = Filter = Convolution Filter
-> ▪ output: Feature map?
-> ▪ 네트워크의 input에 가까울수록 점의 특징(낮은 특징)
-> ▪ 네트워크의 output에 가까울수록 더 커다란 특징을 찾을 수 있을 것
-> ▪ convolution은 공간적인 정보를 압축
+> ▪ 채널 = Dimension(차원) = Depth  
+> ▪ 커널 = Filter = Convolution Filter  
+> ▪ output: Feature map?  
+> ▪ 네트워크의 input에 가까울수록 점의 특징(낮은 특징)  
+> ▪ 네트워크의 output에 가까울수록 더 커다란 특징을 찾을 수 있을 것  
+> ▪ convolution은 공간적인 정보를 압축  
 ---
 
 ### **RGB Image Convolution**
@@ -50,9 +50,9 @@ use_math: True
 
 - ✔ 이 연산을 정의하는데 필요한/컨볼루션의 feature map을 얻기위한 파라미터의 수를 잘 생각해야함
 
-> Q. 32 x 32 x 32 ➡ 28 x 28 x4 만들기 위해 필요한 파라미터의 수?
-> A. 5 x 5 x 3 x 4
-> (컨볼루션의 사이즈, 5 x 5) x (input 채널 숫자, 3) x (output 채널 숫자,4)
+> Q. 32 x 32 x 32 ➡ 28 x 28 x4 만들기 위해 필요한 파라미터의 수?  
+> A. 5 x 5 x 3 x 4  
+> (컨볼루션의 사이즈, 5 x 5) x (input 채널 숫자, 3) x (output 채널 숫자,4)  
 
 ---
 
@@ -67,11 +67,11 @@ use_math: True
 - Convolution and pooling layers: feature extraction(이미지에서 유용한 정보를 추출)
 - Fully connected layer: decision making (e.g.,classification, 분류, 실제 회귀를 해서 내가 원하는 값을 얻어냄)
 
-> 최근에는 FC Layer를 없애는 추세
-> ➡ 파라미터 수와 연관이 있음
-> 내가 학습하고자하는 어떤 모델의 **파라미터 수가 늘어날수록 학습이 어렵고 일반화 성능이 떨어짐**
-> 같은 모델을 만들고, 최대한 컨볼루션을 많이 가져가지만, 파라미터를 줄이는 방법으로 만들고자함
-> NN 봤을 때 레이어 별로 파라미터 몇개, 전체적으로 파라미터 몇개인지 감을 갖는게 중요
+> 최근에는 FC Layer를 없애는 추세  
+> ➡ 파라미터 수와 연관이 있음  
+> 내가 학습하고자하는 어떤 모델의 **파라미터 수가 늘어날수록 학습이 어렵고 일반화 성능이 떨어짐**  
+> 같은 모델을 만들고, 최대한 컨볼루션을 많이 가져가지만, 파라미터를 줄이는 방법으로 만들고자함  
+> NN 봤을 때 레이어 별로 파라미터 몇개, 전체적으로 파라미터 몇개인지 감을 갖는게 중요  
 
 - Convolution Arithmetic (of GoogLeNet)
 
@@ -124,13 +124,13 @@ use_math: True
 - width, height가 input의 spatial dimension
 - 40 x 50 x 128 ➡ 40 x 50 x 64(channel)
 
-> 3x 3 커널을 사용할 때, 이 컨볼루션 레이어를 정의하기 위한 파라미터가 몇개일까?
-> 하나의 채널을 만들기 위해서는, 기본적으로 커널의 spatial dimension이 필요(3 x 3)
-> 자동으로 각각의 커널의 채널 크기는 input dim와 같게 됨
-> 따라서, 하나의 커널, 필터의 크기는 3 x 3 x 128 이걸 찍으면 (st1, pad1일때) 40 x 50 x 1 이 나오므로 이걸 64개 만들기 위해서는 64을 더 곱해줌
-> 3 x 3 x 128 x 64
+> 3x 3 커널을 사용할 때, 이 컨볼루션 레이어를 정의하기 위한 파라미터가 몇개일까?  
+> 하나의 채널을 만들기 위해서는, 기본적으로 커널의 spatial dimension이 필요(3 x 3)  
+> 자동으로 각각의 커널의 채널 크기는 input dim와 같게 됨  
+> 따라서, 하나의 커널, 필터의 크기는 3 x 3 x 128 이걸 찍으면 (st1, pad1일때) 40 x 50 x 1 이 나오므로 이걸 64개 만들기 위해서는 64을 더 곱해줌  
+> 3 x 3 x 128 x 64  
 
-> 어떤 구조를 볼 때, 모델의 파라미터가 몇개인지(단위가 어떤지 확인하는 안목 필요!) 만, 억, 단위..이런거...
+> 어떤 구조를 볼 때, 모델의 파라미터가 몇개인지(단위가 어떤지 확인하는 안목 필요!) 만, 억, 단위..이런거...  
 
 #### **AlexNet 예제**
 
@@ -159,10 +159,10 @@ use_math: True
   - spatial dim(3 x 3) x depth(128) x 2개
   - 마지막 출력값 2048 x 2개
 
-> Convolution의 파라미터 양이 더 작음
-> Dense Layer의 파라미터 양이 훨씬 많음
-> 이유: **✔ 하나의 커널이 모든 위치에 대해서 동일하게 적용되기 때문**
-> **✔ Convolution operator: shared parameter**
+> Convolution의 파라미터 양이 더 작음  
+> Dense Layer의 파라미터 양이 훨씬 많음  
+> 이유: **✔ 하나의 커널이 모든 위치에 대해서 동일하게 적용되기 때문**  
+> **✔ Convolution operator: shared parameter**  
 
 - 성능을 올리는데에, 파라미터 수를 줄이는 것도 중요
 - 대부분의 파라미터가 FC에 들어가있으므로

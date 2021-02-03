@@ -48,12 +48,12 @@ use_math: True
 - loss를 내 파라미터로 각각 **미분하는 방향의 음수 방향으로 업데이트**
 - Then, (loss를 최소화하는) 파라미터를 최적화 할 수 있음
 
-> n개의 데이터를 모두 활용했을 때, 학습데이터의 target data와 (model의 output)output의 제곱을 minimize하는 **loss func의 w에 대한 편미분**
-> $W$에, 이 편미분 값에 적절한 값을 곱해서 빼주면 됨
+> n개의 데이터를 모두 활용했을 때, 학습데이터의 target data와 (model의 output)output의 제곱을 minimize하는 **loss func의 w에 대한 편미분**  
+> $W$에, 이 편미분 값에 적절한 값을 곱해서 빼주면 됨  
 
-> ✔ Gradient Descent 방법이라고 부름
-> loss를 편미분한 것을 빼주기 때문에 gradient descent라고 부르고,
-> reward 같이, 편미분 한 것을 더해주는 경우에는 gradient ascent라고 부름
+> ✔ Gradient Descent 방법이라고 부름  
+> loss를 편미분한 것을 빼주기 때문에 gradient descent라고 부르고,  
+> reward 같이, 편미분 한 것을 더해주는 경우에는 gradient ascent라고 부름  
 
 #### **용어**
 
@@ -62,11 +62,11 @@ use_math: True
 - **back propagation**: 마지막 최종단에서 나온 loss function을 전체 파라미터로 모두 미분하는 것
 - **Gradient Descent**: backpropagation으로 나오는 각 파라미터만의 편미분을 업데이트 시키는 것 
 
-> ✔ **step size** 설정은 중요함 ✔
-> step size가 너무 크면 학습이 잘 안됨
-> 왜냐하면) gradient 정보는 굉장히 local한 정보이므로
-> 바로 그 위치에서 조금밖에 유효하지 않기 때문에 적절한 step size를 찾는 것이 중요
-> 자신의 근처에서만 유효한 성질을 가짐
+> ✔ **step size** 설정은 중요함 ✔  
+> step size가 너무 크면 학습이 잘 안됨  
+> 왜냐하면) gradient 정보는 굉장히 local한 정보이므로  
+> 바로 그 위치에서 조금밖에 유효하지 않기 때문에 적절한 step size를 찾는 것이 중요  
+> 자신의 근처에서만 유효한 성질을 가짐  
 
 - **Adaptive Learning Rate**: step size를 자동으로 바꿔주는 것
 
@@ -80,11 +80,11 @@ use_math: True
 
 ![11](/assets/img/sources/2021-02-02-22-31-01.png)
 
-> 왼쪽의 식(여러 linear의 행렬곱)은 결국 한단짜리 NN과 다를 게 없음
-> 그래서 중간에 **non-linear transform 필요**
-> ➡ **네트워크의 표현력을 늘리기 위해서**
-> 단순히 선형결합을 N번 반복하는 것이 아닌, 한번 선형결합이 반복되는 경우, **activation function**을 곱해서(sigmoid, tanh, relu...) **non-linear transform**을 거치고, 그렇게 얻어지는 feature vector를 다시 선형변환하고, non-linear transform 거치고... 이와 같은 형식을 N번 반복하게 되면, 더 많은 표현력을 가질 수 있음
-> ➡ 이러한 방식으로 구성된 것이 NN이라고 할 수 있음
+> 왼쪽의 식(여러 linear의 행렬곱)은 결국 한단짜리 NN과 다를 게 없음  
+> 그래서 중간에 **non-linear transform 필요**  
+> ➡ **네트워크의 표현력을 늘리기 위해서**  
+> 단순히 선형결합을 N번 반복하는 것이 아닌, 한번 선형결합이 반복되는 경우, **activation function**을 곱해서(sigmoid, tanh, relu...) **non-linear transform**을 거치고, 그렇게 얻어지는 feature vector를 다시 선형변환하고, non-linear transform 거치고... 이와 같은 형식을 N번 반복하게 되면, 더 많은 표현력을 가질 수 있음  
+> ➡ 이러한 방식으로 구성된 것이 NN이라고 할 수 있음  
 
 #### **Activation Function**
 
