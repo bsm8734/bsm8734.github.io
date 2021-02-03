@@ -1,8 +1,8 @@
 ---
 title: "[부스트캠프 AI Tech / Day0] Today"
 date: 2020-00-00 22:31:00 +0900
-categories: [네이버 부스트캠프 AI Tech, Today] # Python
-tags: [today] # CS, 운영체제, Python
+categories: [네이버 부스트캠프 AI Tech, Today]
+tags: [today]
 ---
 
 
