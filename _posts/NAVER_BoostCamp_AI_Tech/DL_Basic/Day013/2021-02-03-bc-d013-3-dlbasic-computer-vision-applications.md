@@ -17,7 +17,7 @@ use_math: True
 
 ---
 
-### Semantic Segmentation
+### **Semantic Segmentation**
 
 ![3](/assets/img/sources/2021-02-04-05-50-53.png)
 
@@ -28,7 +28,7 @@ use_math: True
   - 내 바로 앞에 있는 것이 무엇인지 알아야함(도로, 인도, 자동차, 신호등, ...)
   - 특히 라이다 센서를 사용하지 않는, 이미지만 가지고 하는 분류에서 굉장히 중요
 
-### Fully Convolutional Network
+### **Fully Convolutional Network**
 
 - 우리가 아는 CNN 구조
 - ![5](/assets/img/sources/2021-02-04-04-23-00.png)
@@ -76,7 +76,7 @@ use_math: True
 - 10 x 10 ➡ 100 x 100
 - 아래가 그 늘리는 연산임(ex, conv transpose, un pooling?)
 
-### Deconvolution (conv transpose)
+### **Deconvolution (conv transpose)**
 
 ![10](/assets/img/sources/2021-02-04-05-06-45.png)
 
@@ -93,7 +93,7 @@ use_math: True
 
 ---
 
-### Detection
+### **Detection**
 
 - 이미지 안에서 어느 물체가 어디 위치에 있는지
 - Per Pixel이 아닌, bounding box로 찾기
@@ -104,7 +104,7 @@ use_math: True
 - Region Proposal Network
 - YOLO
 
-### R-CNN
+### **R-CNN**
 
 - Regional CNN
 - 가장 간단한 방법
@@ -125,7 +125,7 @@ use_math: True
 
 - 가장 큰 문제 중, 하나:이미지 안에서 바운딩박스 2000개 뽑으면 2000개의 이미지/패치를 CNN에 모두 통과시켜야함 ➡ CNN을 2000번 돌려야 하나의 이미지에 대한 결과를 얻을 수 있음 ➡ CPU에서 하나의 이미지 처리를 위해서 1분 소요
 
-### SPPNet
+### **SPPNet**
 
 ![16](/assets/img/sources/2021-02-04-05-28-32.png)
 
@@ -139,7 +139,7 @@ use_math: True
 - 그러나 이것도 느릴수밖에 없음
   - 네트워크/conv는 한번만 돌지만, 결국 bounding box에 해당하는 여러개의 텐서를 뜯어와서, Spatial Pyramid Pooling 통해, 하나의 벡터로 만들고, 그걸 또 분류해줘야하니까...
 
-### Fast R-CNN
+### **Fast R-CNN**
 
 ![17](/assets/img/sources/2021-02-04-05-29-49.png)
 
@@ -164,7 +164,7 @@ use_math: True
 - Fast-RCNN은 내가 bounding box를 뽑는 어떤 candidate를 뽑는 것 부터 네트워크로 학습하자는 것!
   - 이 네트워크를 Region Proposal Network(RPN)라고 함
 
-### Region Proposal Network
+### **Region Proposal Network (RPN)**
 
 ![19](/assets/img/sources/2021-02-04-05-49-45.png)
 
@@ -174,8 +174,60 @@ use_math: True
   - 이 물체가 무엇인지는 뒷단의 새로운 네트워크를 통해서 알수 있음(이 네트워크는 모름 물체가 뭔지)
   - Anchor boxes 필요: 미리 정해놓은 bounding box의 크기
     - detection boxes with predefined sizes
-    - 대충 이 이미지 안에 어떤 크기의 물체가 있을 건지 알고있다는 것
-    - k개 템플릿을 만들어 놓고, 이 템플릿이 얼마나 바뀔지 ?
-    - 궁극적으로는 템플릿을 미리 고정해놓기 ?
+    - 대충 이 이미지 안에 어떤 크기의 물체가 있을 건지 알고있는 것
+    - k개 템플릿을 만들어 놓고, 이 템플릿이 얼마나 바뀔지에 대한 offset을 찾고 궁극적으로는 템플릿을 미리 고정해놓는게 가장 큰 특징
 
-### YOLO
+![20](/assets/img/sources/2021-02-04-17-19-32.png)
+
+- 54 size의 conv feature map을 들고, 해당 바운딩박스를 쓸지말지 결정
+- fully connected가 해주는 일은 convolutio feature map의 모든 영역을 돌아가면서 찍는것
+- 해석: 해당하는 영역에 물체가 들어있을지 없을지에 대한 정보를 이 fully connected Network가 들고있는 것
+- (anchor box type) anchor box, full defined region size: 9개(9개의 region size 중 하나를 고르게 됨)
+- (bounding box regression) 각 bounding box마다 얼마나 키우고 줄일지 width, heigh, x_offset, y_offset: 총 4개
+- (bounding box classification) 상대적으로 적은 숫자의 bounding box의 proposal (Y/N) : 2개
+- 해당 영역에서 bounding box를 사용할지 말지 결정하게 됨
+- fine grade 작은 물체도 잘 분류하게 됨
+
+---
+
+### **YOLO** 수정필요
+
+![22](/assets/img/sources/2021-02-04-17-42-51.png)
+
+- 매우 빠름
+- 그냥 이미지 한장에서 바로 찍어서 결과를 도출하므로!
+- Faster-RCNN은 바운딩박스를 찾는 region proposal 네트워크가 있고, 결과물인 conv feature mapd있음. 이것의 sub-tensor를 가지고, 이 바운딩 박스를 따로 분류하는 과정이 있었는데, YOLO는 한번에 찾을 수 있음 ➡ 빠름
+- YOLO는 이미지가 들어오는 S x S의 그리드로 나눔
+- 이 그리드 셀 안에 물체의 중앙이 들어가게 되면, 그 그리드 셀이 해당 물체에 대한 바운딩 박스와 물체가 무엇인지 분류(예측)해줌!
+- 앞에는 anchor box처럼 full defined region이 있었는데, 여기는 그런게 없음
+- 그냥 B개의 바운딩 박스에 대한 (예측) x, y, w, h를 찾아주게 되고, 실제로 그 바운딩 박스가 쓸모있는지(box probability)도 함께 찾아주게 됨
+- 그와 동시에, 각 그리드에서, 각 그리드에 속하는 중점에 있는 물체가 어떤 클래스인지 예측함(이전에는 각각이었음)
+- 두 정보를 취합하게 되면, 바운딩박스와 그 바운딩 박스가 어떤 것을 의미하는지(클래스) 알 수 있게 됨
+- S x S x (B * 5 * C) 사이즈의 텐서를 만드는것! = YOLO
+- (B * 5 * C): 채널
+- B개의 bounding box가 있음
+- B개) 박스마다 property 5(x, y, w, h, confidence(쓸지말지)) + C개의 클래스 probability
+- 각 채넣에 맞는 정보가 들어갈 수 있도록 NN이 학습!
+
+![25](/assets/img/sources/2021-02-04-18-23-46.png)
+
+  1. 주어진 이미지에 대해 S x S 그리드로 나눈다.
+     - If the center of an object falls into the grid cell, that grid cell is responsible for detection.
+  2. Each cell predicts B bounding boxes(B=5).
+    - Each bounding box predicts
+      - box refinement(x/y/w/h)
+      - confidence(of objectness)
+  3. Each cell predicts B bounding boxes(B=5).
+     - Each bounding box predicts
+       - box refinement (x/y/w/h)
+       - confidence(of objectness)
+     - Each cell predicts C class probabilities
+  4. In total, it becomes a tensor with `S x S x (B * 5 + C)` size.
+     - S x S: Number of cells of the grid
+     - B * 5: B bounding boxes with offsets (x,y,w,h) and confidence
+     - C: Number of classes
+
+---
+
+> sementic segmentation, detection의 문제점, 이에 대한 해결책, FCN방법, Bounding Box 찾기, class probability  
+> YOLO v2: 네트워크가 쌩으로 바운딩박스를 바로 찾는 것이 아니라, 바운딩박스의 크기를 미리 정해놓고, 이를 조금씩 변경하는 것으로 바꿈 - refine하는 것이 더 쉬운 것
