@@ -6,9 +6,9 @@ tags: [M1_Mac, Git] # CS, 운영체제, Python, today, Math, Jekyll, Ruby, M1_Ma
 ---
 
 
-## 맥에서 Token Authentication 해결하기
+## **맥에서 Token Authentication 해결하기**
 
---
+---
 
 맥북에서 처음 push 했는데, 뭔가 메일이 날라왔다.
 

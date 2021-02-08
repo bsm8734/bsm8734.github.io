@@ -29,4 +29,3 @@ tags: [Jekyll, Ruby] # CS, 운영체제, Python, today, Math, Jekyll, Ruby
 [chirpy 설명](https://chirpy.cotes.info/posts/customize-the-favicon/)
 [favicon 만들어주는 사이트](https://www.favicon-generator.org/)
 - 다양한 사양으로 이미지를 변형해주므로 그냥 unzip해서 붙여넣기만 하면됨
-
