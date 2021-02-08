@@ -1,8 +1,8 @@
 ---
 title: "[ETC] Git - Token authentication requirements for Git operations?"
 date: 2020-02-08 19:30:00 +0800
-categories: [ETC, Git] # Python, Math_AI, ETC, Jekyll, Git
-tags: [M1_Mac, Git] # CS, 운영체제, Python, today, Math, Jekyll, Ruby, M1_Mac
+categories: [ETC, Git]
+tags: [M1_Mac, Git]
 ---
 
 

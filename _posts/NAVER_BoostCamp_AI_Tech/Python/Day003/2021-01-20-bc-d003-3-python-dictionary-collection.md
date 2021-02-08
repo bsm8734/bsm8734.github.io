@@ -1,8 +1,8 @@
 ---
 title: "[부스트캠프 AI Tech / Day3] 파이썬 Dictionary & Collection"
 date: 2020-01-20 20:30:00 +0900
-categories: [네이버 부스트캠프 AI Tech, Python] # Python
-tags: [Python] # CS, 운영체제, Python
+categories: [네이버 부스트캠프 AI Tech, Python]
+tags: [Python]
 ---
 
 

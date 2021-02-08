@@ -1,8 +1,8 @@
 ---
 title: "[ETC] Jekyll 블로그 만들기"
 date: 2020-01-20 19:30:00 +0800
-categories: [ETC, Jekyll] # Python, Math_AI, ETC, Jekyll
-tags: [Jekyll, Ruby] # CS, 운영체제, Python, today, Math, Jekyll, Ruby
+categories: [ETC, Jekyll]
+tags: [Jekyll, Ruby]
 ---
 
 

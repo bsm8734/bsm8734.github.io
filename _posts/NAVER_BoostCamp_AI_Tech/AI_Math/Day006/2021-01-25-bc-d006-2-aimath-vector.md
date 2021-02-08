@@ -1,8 +1,8 @@
 ---
 title: "[부스트캠프 AI Tech / Day6] Math_AI 벡터"
 date: 2020-01-25 20:30:00 +0800
-categories: [네이버 부스트캠프 AI Tech, Math_AI] # Python, Math_AI
-tags: [Math] # CS, 운영체제, Python, today, Math
+categories: [네이버 부스트캠프 AI Tech, Math_AI]
+tags: [Math]
 use_math: True
 ---
 

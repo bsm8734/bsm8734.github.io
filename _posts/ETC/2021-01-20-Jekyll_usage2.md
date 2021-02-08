@@ -1,8 +1,8 @@
 ---
 title: "[ETC] Jekyll 블로그 활용하기"
 date: 2020-01-20 20:30:00 +0800
-categories: [ETC, Jekyll] # Python, Math_AI, ETC, Jekyll
-tags: [Jekyll, Ruby] # CS, 운영체제, Python, today, Math, Jekyll, Ruby
+categories: [ETC, Jekyll]
+tags: [Jekyll, Ruby]
 ---
 
 ## Jekyll 블로그에 글 올리기

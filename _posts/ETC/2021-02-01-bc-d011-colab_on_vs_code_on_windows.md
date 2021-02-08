@@ -1,8 +1,8 @@
 ---
-title: "[ETC] VS code에서 Colab 사용하기"
+title: "[ETC] VS code에서 Colab 사용하기 (for Windows)"
 date: 2020-02-01 19:30:00 +0800
-categories: [ETC, Colab] # Python, Math_AI
-tags: [Math] # CS, 운영체제, Python, today, Math
+categories: [ETC, Colab]
+tags: [Colab]
 use_math: True
 ---
 

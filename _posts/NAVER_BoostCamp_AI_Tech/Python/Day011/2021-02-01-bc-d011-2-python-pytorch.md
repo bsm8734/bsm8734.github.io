@@ -1,8 +1,8 @@
 ---
 title: "[부스트캠프 AI Tech / Day11] 파이썬 Pytorch"
 date: 2020-02-01 20:30:00 +0800
-categories: [네이버 부스트캠프 AI Tech, Python] # Python
-tags: [Python] # CS, 운영체제, Python, today
+categories: [네이버 부스트캠프 AI Tech, Python]
+tags: [Python]
 use_math: True
 ---
 
