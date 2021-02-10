@@ -1,12 +1,13 @@
-### categories
 
-#### 네이버 부스트캠프 AI Tech
+# categories
+
+## 네이버 부스트캠프 AI Tech
 
 - Python
 - Math_AI
 - DeepLearning_Basic
 
-#### ETC
+## ETC
 
 - Jekyll
 - Colab
@@ -15,7 +16,7 @@
 
 ---
 
-### tags
+# tags
 
 - CS
 - 운영체제

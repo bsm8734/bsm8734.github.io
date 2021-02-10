@@ -56,7 +56,7 @@ use_math: True
 
 ---
 
-### Convolutional Neural Networks
+### **Convolutional Neural Networks**
 
 - Convolution Layer
 - Pooling Layer
