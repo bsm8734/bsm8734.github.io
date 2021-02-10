@@ -1,6 +1,6 @@
 ---
 title: "[부스트캠프 AI Tech / Day0] Today"
-date: 2020-00-00 22:31:00 +0900
+data: 2021-00-00 22:31:00 +0900
 categories: [네이버 부스트캠프 AI Tech, Today]
 tags: [today]
 ---

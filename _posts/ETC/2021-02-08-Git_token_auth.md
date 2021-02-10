@@ -1,6 +1,6 @@
 ---
 title: "[ETC] Git - Token authentication requirements for Git operations?"
-date: 2020-02-08 19:30:00 +0800
+data: 2021-02-08 19:30:00 +0800
 categories: [ETC, Git]
 tags: [M1_Mac, Git]
 ---

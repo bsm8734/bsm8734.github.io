@@ -1,6 +1,6 @@
 ---
 title: "[부스트캠프 AI Tech / Day3] 파이썬 lambda & map & reduce(수정필요)"
-date: 2020-01-20 20:30:00 +0900
+data: 2021-01-20 20:30:00 +0900
 categories: [네이버 부스트캠프 AI Tech, Python]
 tags: [Python]
 ---

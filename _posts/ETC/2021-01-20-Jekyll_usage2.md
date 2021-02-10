@@ -1,6 +1,6 @@
 ---
 title: "[ETC] Jekyll 블로그 활용하기"
-date: 2020-01-20 20:30:00 +0800
+data: 2021-01-20 20:30:00 +0800
 categories: [ETC, Jekyll]
 tags: [Jekyll, Ruby]
 ---

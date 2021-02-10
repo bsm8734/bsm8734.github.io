@@ -1,6 +1,6 @@
 ---
 title: "[부스트캠프 AI Tech / Day13] 딥러닝 기초 Computer Vision Applications"
-date: 2020-02-03 20:20:00 +0800
+data: 2021-02-03 20:20:00 +0800
 categories: [네이버 부스트캠프 AI Tech, DeepLearning_Basic]
 tags: [DL, ML]
 use_math: True

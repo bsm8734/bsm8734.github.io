@@ -1,6 +1,6 @@
 ---
 title: "[부스트캠프 AI Tech / Day6] 파이썬 Numpy"
-date: 2020-01-25 20:30:00 +0800
+data: 2021-01-25 20:30:00 +0800
 categories: [네이버 부스트캠프 AI Tech, Python]
 tags: [Python]
 use_math: True

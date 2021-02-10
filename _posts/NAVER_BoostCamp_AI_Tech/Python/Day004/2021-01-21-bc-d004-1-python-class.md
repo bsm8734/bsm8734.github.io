@@ -1,6 +1,6 @@
 ---
 title: "[부스트캠프 AI Tech / Day4] 파이썬 Class"
-date: 2020-01-21 20:30:00 +0900
+data: 2021-01-21 20:30:00 +0900
 categories: [네이버 부스트캠프 AI Tech, Python]
 tags: [Python]
 ---

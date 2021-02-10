@@ -1,6 +1,6 @@
 ---
 title: "[부스트캠프 AI Tech / Day2] 파이썬 Function"
-date: 2020-01-19 20:30:00 +0900
+data: 2021-01-19 20:30:00 +0900
 categories: [네이버 부스트캠프 AI Tech, Python]
 tags: [Python]
 ---

@@ -1,6 +1,6 @@
 ---
 title: "[부스트캠프 AI Tech / Day6] Math_AI 행렬"
-date: 2020-01-25 20:30:00 +0800
+data: 2021-01-25 20:30:00 +0800
 categories: [네이버 부스트캠프 AI Tech, Math_AI]
 tags: [Math]
 use_math: True

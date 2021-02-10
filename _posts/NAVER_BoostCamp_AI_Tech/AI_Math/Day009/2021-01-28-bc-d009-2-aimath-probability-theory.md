@@ -1,6 +1,6 @@
 ---
 title: "[부스트캠프 AI Tech / Day9] Math_AI 확률론"
-date: 2020-01-28 20:20:00 +0800
+data: 2021-01-28 20:20:00 +0800
 categories: [네이버 부스트캠프 AI Tech, Math_AI]
 tags: [Math]
 use_math: True

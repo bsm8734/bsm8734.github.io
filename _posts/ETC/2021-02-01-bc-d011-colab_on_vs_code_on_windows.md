@@ -1,6 +1,6 @@
 ---
 title: "[ETC] VS code에서 Colab 사용하기 (for Windows)"
-date: 2020-02-01 19:30:00 +0800
+data: 2021-02-01 19:30:00 +0800
 categories: [ETC, Colab]
 tags: [Colab]
 use_math: True

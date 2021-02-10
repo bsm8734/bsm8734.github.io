@@ -1,6 +1,6 @@
 ---
 title: "[ETC] VS code에서 Colab 사용하기 (for Mac M1)"
-date: 2020-02-09 02:30:00 +0800
+data: 2021-02-09 02:30:00 +0800
 categories: [ETC, Colab]
 tags: [Colab, M1_Mac]
 use_math: True

@@ -1,6 +1,6 @@
 ---
 title: "[부스트캠프 AI Tech / Day10] 파이썬 Graph tools"
-date: 2020-01-29 20:30:00 +0800
+data: 2021-01-29 20:30:00 +0800
 categories: [네이버 부스트캠프 AI Tech, Python]
 tags: [Python]
 use_math: True

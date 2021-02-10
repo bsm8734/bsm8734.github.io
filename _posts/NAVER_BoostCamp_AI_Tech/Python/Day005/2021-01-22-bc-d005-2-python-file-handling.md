@@ -1,6 +1,6 @@
 ---
 title: "[부스트캠프 AI Tech / Day5] 파이썬 File Handling"
-date: 2020-01-22 20:32:00 +0900
+data: 2021-01-22 20:32:00 +0900
 categories: [네이버 부스트캠프 AI Tech, Python]
 tags: [Python]
 ---
