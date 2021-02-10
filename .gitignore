@@ -1,3 +1,5 @@
 .jekyll-cache
 .github
 _site
+.DS_Store
+
