@@ -9,9 +9,8 @@ tags: [DataProcessing, ImgCrawling]
 
 ---
 
-부캠 팀원들과 피어세션의 연장선으로 소규모 프로젝트 **"나만의 데이터셋 만들기"** 를 해볼것이다.
-
-Google images download에서 긁어오는 이미지 이외에 더 다양한 이미지를 얻기 위해서 인스타그램 크롤링을 시도해보기로 하였다.
+- 부캠 팀원들과 피어세션의 연장선으로 소규모 프로젝트 **"나만의 데이터셋 만들기"** 를 해볼것이다.
+- Google images download에서 긁어오는 이미지 이외에 더 다양한 이미지를 얻기 위해서 인스타그램 크롤링을 시도해보기로 하였다.
 
 ---
 
@@ -30,13 +29,12 @@ Google images download에서 긁어오는 이미지 이외에 더 다양한 이�
 
 ### **Chrome Driver 설치**
 
-크롬 버전에 맞는 크롬 드라이버 설치
+- 크롬 버전에 맞는 크롬 드라이버 설치
+- 크롬드라이버를 프로젝트 내부로 위치시키기(py 파일과 동일한 위치로 이동)
 
-크롬드라이버를 프로젝트 내부로 위치시키기(py 파일과 동일한 위치로 이동)
+![sources/Untitled.png](/assets/img/sources/2021-02-10-1.png.png)
 
-![sources/Untitled.png](sources/Untitled.png)
-
-img 폴더, 크롬드라이버, 코드 이렇게 3개는 동일한 위치에 있어야한다.
+- img 폴더, 크롬드라이버, 코드 이렇게 3개는 동일한 위치에 있어야한다.
 
 ### **코드**
 
@@ -127,9 +125,7 @@ driver.close()
 ```
 
 ~~이 코드의 단점은 로그인버튼과 설정 나중에하기 버튼과 태그리스트에서 하나를 골라서 **클릭해주는 기능이 없다**는 것이다. 따라서 시간초과가 나기 전에 버튼을 눌러야한다. ㅋㅋ~~ 
-
 → [히스](https://github.com/Heeseok-Jeong)님 도움으로 자동로그인과 설정 나중에하기 버튼, 태그리스트 자동 선택 문제를 해결했다!
-
 ~~바보같이 Keys.RETURN 쓰면서 라이브러리 import를 안해줬었다!~~
 
 ---
@@ -138,21 +134,19 @@ driver.close()
 
 ---
 
-### **Error Handling** - system error: 알수없는 개발자?
+### **Error Handling - system error: 알수없는 개발자?**
 
-![sources/Untitled1.png](sources/Untitled1.png)
+![sources/Untitled.png](/assets/img/sources/2021-02-10-2.png.png)
 
-만약 개발자를 확인할 수 없기 때문에 열 수 없다는 메시지가 나오면,
-
-터미널을 크롬 드라이버 위치에서 띄운 후, 아래의 명령어로 access 가능하게 설정
+- 만약 개발자를 확인할 수 없기 때문에 열 수 없다는 메시지가 나오면, 터미널을 크롬 드라이버 위치에서 띄운 후, 아래의 명령어로 access 가능하게 설정
 
 `$ xattr -d com.apple.quarantine chromedriver`
 
 ---
 
-### **Error Handling** - warning: **No parser was explicitly specified**?
+### **Error Handling - warning: No parser was explicitly specified**?
 
-> Warning 내역
+#### Warning 내역
 
 ```
 /Users/path/instagram_crawling.py:25: GuessedAtParserWarning: **No parser was explicitly specified**, so I'm using the best available HTML parser for this system ("lxml"). This usually isn't a problem, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.
@@ -161,7 +155,7 @@ The code that caused this warning is on line 25 of the file /Users/path/instagra
 soup = BeautifulSoup(html)
 ```
 
-> 수정
+#### 수정
 
 - 설명: BeautifulSoup 생성자에 파라미터 `"lxml"` 을 추가해준다
 - lxml 설치: `conda install lxml`
@@ -176,25 +170,18 @@ soup = BeautifulSoup(html)
 
 ### **참고블로그**
 
-[https://dahaha.tistory.com/76](https://dahaha.tistory.com/76)
-
-[https://beomi.github.io/2017/02/27/HowToMakeWebCrawler-With-Selenium/](https://beomi.github.io/2017/02/27/HowToMakeWebCrawler-With-Selenium/)
-
-[https://jessymin.github.io/web-scraping/2019/10/01/selenium-chrome-binary-error-solution.html](https://jessymin.github.io/web-scraping/2019/10/01/selenium-chrome-binary-error-solution.html)
-
-[https://it-neicebee.tistory.com/75?category=890500](https://it-neicebee.tistory.com/75?category=890500)
-
-[https://wikidocs.net/67691](https://wikidocs.net/67691)
-
-[https://edu.goorm.io/qna/3367](https://edu.goorm.io/qna/3367)
-
-[https://yxxnah.github.io/2019/10/02/Web-Crawling-4-Selenium/](https://yxxnah.github.io/2019/10/02/Web-Crawling-4-Selenium/)
+- [https://dahaha.tistory.com/76](https://dahaha.tistory.com/76)
+- [https://beomi.github.io/2017/02/27/HowToMakeWebCrawler-With-Selenium/](https://beomi.github.io/2017/02/27/HowToMakeWebCrawler-With-Selenium/)
+- [https://jessymin.github.io/web-scraping/2019/10/01/selenium-chrome-binary-error-solution.html](https://jessymin.github.io/web-scraping/2019/10/01/selenium-chrome-binary-error-solution.html)
+- [https://it-neicebee.tistory.com/75?category=890500](https://it-neicebee.tistory.com/75?category=890500)
+- [https://wikidocs.net/67691](https://wikidocs.net/67691)
+- [https://edu.goorm.io/qna/3367](https://edu.goorm.io/qna/3367)
+- [https://yxxnah.github.io/2019/10/02/Web-Crawling-4-Selenium/](https://yxxnah.github.io/2019/10/02/Web-Crawling-4-Selenium/)
 
 ### **✔️ Google Colab에서 돌릴때는 방법이 다르다!**
 
-[https://ai-run.tistory.com/47](https://ai-run.tistory.com/47)
-
-[https://beomi.github.io/2017/09/28/HowToMakeWebCrawler-Headless-Chrome/](https://beomi.github.io/2017/09/28/HowToMakeWebCrawler-Headless-Chrome/)
+- [https://ai-run.tistory.com/47](https://ai-run.tistory.com/47)
+- [https://beomi.github.io/2017/09/28/HowToMakeWebCrawler-Headless-Chrome/](https://beomi.github.io/2017/09/28/HowToMakeWebCrawler-Headless-Chrome/)
 
 ### **✔️ 인스타그램 크롤링에서 Selenium을 사용하는 이유?**
 
