@@ -9,11 +9,11 @@
 @mixin light-syntax {
 
   /* -----  My styles ------ */
-  --highlight-bg-color: #252525;
-  --highlighter-rouge-color: #de6b18;
-  --highlight-lineno-color: #6c6c6d;
-  --highlight-lineno-border-color: #303435;
-  --inline-code-bg: #272822;
+  --highlight-bg-color: #f3f2f1;
+  --highlighter-rouge-color: #eb6e6d;
+  --highlight-lineno-color: #b2b3b6;
+  --highlight-lineno-border-color: #c9cbcc;
+  --inline-code-bg: #f3f2f1;
 
   .highlight {
     .gp { color: #818c96; }
