@@ -11,8 +11,8 @@
 @import "_colors/light-typography";
 @import "_colors/dark-typography";
 
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;900&display=swap');
-
+// @import url('https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap');
 
 @mixin mode-toggle($dark-mode: false) {
   @if $dark-mode {
@@ -47,7 +47,7 @@ html[mode=dark] {
 }
 
 :root {
-  font-size: 16px;
+  font-size: 12px;
 }
 
 body {
@@ -55,7 +55,8 @@ body {
   background: var(--body-bg);
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro', 'Microsoft Yahei', sans-serif;
+  font-family: 'Gothic A1', 'Roboto', sans-serif;
+  // font-family: 'Source Sans Pro', 'Microsoft Yahei', sans-serif;
 }
 
 /*--- sidebar layout ---*/
@@ -625,35 +626,35 @@ footer {
 
 h1 {
   @extend %heading;
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 h2 {
   @extend %heading;
   @extend %section;
   @extend %anchor;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 }
 
 h3 {
   @extend %heading;
   @extend %section;
   @extend %anchor;
-  font-size: 1.25rem;
+  font-size: 1.6em;
 }
 
 h4 {
   @extend %heading;
   @extend %section;
   @extend %anchor;
-  font-size: 1.15rem;
+  font-size: 1.4rem;
 }
 
 h5 {
   @extend %heading;
   @extend %section;
   @extend %anchor;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 blockquote {
