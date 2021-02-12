@@ -39,7 +39,7 @@
 }
 
 %heading {
-  font-weight: 500;
+  font-weight: 700;
   font-family: 'Nanum Gothic', 'Noto Sans KR', 'Open Sans', sans-serif;
   // font-family: 'Lato', 'Microsoft Yahei', sans-serif;
 }
@@ -91,6 +91,11 @@
 
 @mixin semi-bold {
   font-weight: 600;
+  color: #470e1f;
+}
+
+@mixin bold {
+  font-weight: 700;
   color: #470e1f;
 }
 

@@ -51,7 +51,7 @@ html[mode=dark] {
 }
 
 body {
-  line-height: 1.5rem;
+  line-height: 1.35rem;
   background: var(--body-bg);
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
@@ -434,7 +434,7 @@ $sidebar-display: "sidebar-display";
   display: none;
   font-size: 1.1rem;
   font-weight: 600;
-  font-family: 'Gothic A1', 'Roboto', sans-serif;
+  font-family: 'Nanum Gothic', 'Noto Sans KR', 'Open Sans', sans-serif;
   color: var(--topbar-text-color);
   text-align: center;
   width: 70%;
