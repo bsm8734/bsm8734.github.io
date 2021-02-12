@@ -22,10 +22,9 @@ tags: [Python]
 > ▪ 변수명은 대소문자가 구분하기  
 > ▪ 특별한 의미가 있는 예약어는 쓰지않기(for, if, in, ...)  
 
+---
 
 ## **Basic Operation**
-
----
 
 ### **1. 기본자료형(primitive data type)**
 
