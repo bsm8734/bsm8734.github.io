@@ -47,11 +47,11 @@ html[mode=dark] {
 }
 
 :root {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 body {
-  line-height: 1.75rem;
+  line-height: 1.5rem;
   background: var(--body-bg);
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
@@ -434,7 +434,7 @@ $sidebar-display: "sidebar-display";
   display: none;
   font-size: 1.1rem;
   font-weight: 600;
-  font-family: sans-serif;
+  font-family: 'Gothic A1', 'Roboto', sans-serif;
   color: var(--topbar-text-color);
   text-align: center;
   width: 70%;

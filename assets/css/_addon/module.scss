@@ -91,6 +91,7 @@
 
 @mixin semi-bold {
   font-weight: 600;
+  color: #470e1f;
 }
 
 @mixin label($font-size: 1rem, $font-weight: 600, $color: var(--label-color)) {
