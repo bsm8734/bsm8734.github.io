@@ -32,7 +32,7 @@ tags: [DataProcessing, ImgCrawling]
 - 크롬 버전에 맞는 크롬 드라이버 설치
 - 크롬드라이버를 프로젝트 내부로 위치시키기(py 파일과 동일한 위치로 이동)
 
-![sources/Untitled.png](/assets/img/sources/2021-02-10-1.png.png)
+![sources/Untitled.png](/assets/img/sources/2021-02-10-1.png)
 
 - img 폴더, 크롬드라이버, 코드 이렇게 3개는 동일한 위치에 있어야한다.
 
@@ -136,7 +136,7 @@ driver.close()
 
 ### **Error Handling - system error: 알수없는 개발자?**
 
-![sources/Untitled.png](/assets/img/sources/2021-02-10-2.png.png)
+![sources/Untitled.png](/assets/img/sources/2021-02-10-2.png)
 
 - 만약 개발자를 확인할 수 없기 때문에 열 수 없다는 메시지가 나오면, 터미널을 크롬 드라이버 위치에서 띄운 후, 아래의 명령어로 access 가능하게 설정
 
