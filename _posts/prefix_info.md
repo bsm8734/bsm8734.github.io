@@ -6,6 +6,7 @@
 - Python
 - Math_AI
 - DeepLearning_Basic
+- NLP
 
 ## ETC
 
