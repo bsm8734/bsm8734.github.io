@@ -7,6 +7,7 @@
 - Math_AI
 - DeepLearning_Basic
 - NLP
+- Graph
 
 ## ETC
 
@@ -37,3 +38,4 @@
 - DataProcessing
 - ImgCrawling
 - method
+- Graph
