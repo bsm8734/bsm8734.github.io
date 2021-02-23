@@ -86,45 +86,74 @@ use_math: True
 
 ![10](/assets/img/sources/2021-02-04-12-43-00.png)
 
-- 과거에 얻어진 어떤 정보들이 다 취합되어, 미래에서 그것을 고려해야함
-- RNN은 고정된 규칙으로 이 정보들을 계속 취합하므로, 과거의 정보가 미래까지 살아남기가 어려움
-- step 직전의 정보는 잘 전달이 되는데, 더 이전의 정보는 전달이 안되는 문제
-- RNN에서 Short term를 찾아볼 수 있지만 Long term은 잘 찾아볼 수 없음
+- 가까운 시간 내에 일어난 것은 쉽게 고려될 수 있음
 
 #### Long-term dependencies
 
 ![11](/assets/img/sources/2021-02-04-12-43-29.png)
 
-위의 문제(과거의 정보손실)를 해결하기 위해서 LSTM 같은 것들이 나타남
+- 과거에 얻어진 어떤 정보들이 다 취합되어, 미래에서 그것을 고려해야함
+- RNN은 고정된 규칙으로 이 정보들을 계속 취합하므로, 과거의 정보가 미래까지 살아남기가 어려움
+- step 직전의 정보는 잘 전달이 되는데, 더 이전의 정보는 전달이 안되는 문제
+- RNN에서 Short term를 찾아볼 수 있지만 Long term은 잘 찾아볼 수 없음 (가장 큰 단점)
+- 위의 문제(과거의 정보손실)를 해결하기 위해서 LSTM 같은 것들이 나타남
 
 #### RNN의 식
 
 ![12](/assets/img/sources/2021-02-04-12-44-02.png)
 
-시간에 대해서 식을 풀게 되면(one row? unrow?)
-
+- 시간에 대해서 식을 풀게 되면(unroll in time), 굉장히 width가 커진 네트워크가 나온다.
+- 중첩되는 구조가 들어감을 알 수 있다.
+- h1 → h4 까지 가기 위해서는, 똑같은 weight를 곱하게 되고, non-linear을 통과시켜야 한다.
+- Vanishing Gradient 문제
+  - 만약 non-linear 함수 0/(피? 대충 이렇게 생긴 기호)가 sigmoid라고 생각해보자.
+  - sigmoid의 성질은 0~1 사이 값으로 스쿼싱해주는 역할을 한다. (정보를 줄인다)
+  - 결국 계속 0~1 사이의 값으로 줄어들기 떄문에 값이 사라지는 문제가 생긴다.
+  - h1이 h4에 반영이 안되는 결과! → 값이 사라져서 학습불가
+- Exploding Gradient 문제
+  - 만약 non-linear 함수가 Relu 라고 생각해보자.
+  - 그렇다면 계속 n이라는 값이 곱해지므로 결국 값이 과도하게 커지는 문제가 생긴다.
+  - 결국 h1이 h4에 너무 과도하게 반영되는 문제! → 네트워크가 폭발해서 학습불가
 
 ---
 
 ### Long Short Term Memory
 
-#### RNN
+#### (기존) RNN
 
 ![14](/assets/img/sources/2021-02-04-12-44-34.png)
 
-#### Long Short Term Memory
+- 가장 기본적인 RNN, Vanilla RNN 이라고도 부른다.
+- 이전 cell state와 입력을 concat해서 tanh 통과해서 output으로 사용
+
+#### Long Short Term Memory (LSTM)
 
 ![15](/assets/img/sources/2021-02-04-12-44-57.png)
 
+---
+
 ![16](/assets/img/sources/2021-02-04-12-45-26.png)
+
+- x: 입력, ex) 워드임베딩을 통한 결과인, 단어를 표현하는 어떠한 벡터
+- cell state: 내부에서만 흘러간다. t시간 까지의 정보를 취합해서 summarize 해주는 정보. 밖으로 나가지 않는다.
+- 들어오는 것이 세 개, 나가는 것이 세 개 이지만, 실제로 네트워크 밖으로 나가는 결과물은 output인 hidden state 뿐!
+- 크게 3개의 gate로 이루어져있다.
+  - forget gate
+  - input gate
+  - output gate
 
 #### Core idea
 
 ![17](/assets/img/sources/2021-02-04-12-46-06.png)
 
+- cell state: time step t까지 들어온 정보를 요약하는 역할을 한다.
+- 예를 들어서, 컨베이너 벨트 위의 정보들 중에, 어떤 것을 빼고, 더할지 정하는 것이 gate의 역할이다.
+
 ![18](/assets/img/sources/2021-02-04-12-46-31.png)
 
 ![19](/assets/img/sources/2021-02-04-12-46-52.png)
+
+
 
 #### 요약
 
