@@ -25,7 +25,7 @@ use_math: True
 
 #### 자신의 페이지랭크 점수 정하는 방법
 
-<img src="/assets/img/sources/2021-02-24-18-58-15.png" width=30%>
+<img src="/assets/img/sources/2021-02-24-18-58-15.png" width="30%">
 
 > $r_j$: $j$ 웹페이지의 페이지랭크 점수  
 > $N_{in}(j)$: $j$ 웹페이지(정점)에 들어오는 간선  
@@ -59,7 +59,7 @@ use_math: True
 
 최종적으로 우리가 사용할 수식은 아래와 같다.
 
-<img src="/assets/img/sources/2021-02-24-19-27-42.png" width=70%>
+<img src="/assets/img/sources/2021-02-24-19-27-42.png" width="70%">
 
 ---
 
