@@ -78,12 +78,12 @@ use_math: True
 - 각 웹페이지는 각각의 나가는 이웃에게 자신의 페이지랭크 점수 만큼의 가중치로 투표를 한다.
 - (자신의 페이지랭크 점수)/(나가는 이웃의 수) 만큼의 가중치로 투표한다.
 
-<img src="/assets/img/sources/2021-02-24-02-13-20.png" width=80%>
+<img src="/assets/img/sources/2021-02-24-02-13-20.png" width="80%">
 
 - 각 웹페이지의 페이지랭크 점수는 (이웃들에 의해) 받은 투표의 가중치 합으로 정의된다.
 
-<img src="/assets/img/sources/2021-02-24-02-14-25.png" width=80%>
-<img src="/assets/img/sources/2021-02-24-02-14-50.png" width=80%>
+<img src="/assets/img/sources/2021-02-24-02-14-25.png" width="80%">
+<img src="/assets/img/sources/2021-02-24-02-14-50.png" width="80%">
 
 ---
 
@@ -94,13 +94,13 @@ use_math: True
 - 즉, <u>웹서퍼는 현재 웹페이지에 있는 하이퍼링크 중 하나를 균일한 확률로 클릭하는 방식</u>으로 웹을 서핑한다.  
 - **웹서퍼가 𝑡번째 방문한 웹페이지가 웹페이지 𝑖일 확률을 𝒑𝒊(𝒕)** 라고 하자.  
 - 그러면 **𝒑(𝒕)는 길이가 웹페이지 수와 같은 확률분포 벡터**가 된다. 그러면 아래 식이 성립한다.
-<img src="/assets/img/sources/2021-02-24-02-16-46.png" width=40%>
+<img src="/assets/img/sources/2021-02-24-02-16-46.png" width="40%">
 
 - p(t)는 벡터가 되고, v개의 p 값이 존재한다.
 - $p_i(t)$는 $i$→$j$ 확률을 $j$에 들어오는 각각에 계산
 - $p_j(t+1)$는 $t+1$번 째 방문한 웹페이지가 $j$일 확률
 
-<img src="/assets/img/sources/2021-02-24-02-45-31.png" width=80%>
+<img src="/assets/img/sources/2021-02-24-02-45-31.png" width="80%">
 
 - $p(t) = p(t+1) = p$가 수렴한다는 것은 $t$가 충분히 커서, 각각 $p_i, p_j$가 된다는 것
 

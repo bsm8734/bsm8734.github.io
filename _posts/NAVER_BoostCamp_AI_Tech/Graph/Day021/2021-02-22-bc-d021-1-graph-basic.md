@@ -95,7 +95,7 @@ tags: [Graph]
 
 #### 간선 리스트 (Edge List)
 
-<img src="/assets/img/sources/2021-02-22-15-10-31.png" width=50%>
+<img src="/assets/img/sources/2021-02-22-15-10-31.png" width="50%">
 
 - 그래프를 간선들의 리스트로 저장
 - 각 간선은 해당 간선이 연결하는 두 정점들의 순서쌍(Pair)으로 저장
@@ -104,14 +104,14 @@ tags: [Graph]
 
 #### 인접 리스트 (Adjacent list)
 
-<img src="/assets/img/sources/2021-02-22-15-09-58.png" width=80%>
+<img src="/assets/img/sources/2021-02-22-15-09-58.png" width="80%">
 
 - 방향성이 없는 경우에, 하나의 edge는 연결된 각 vertex에 의해 두 번 등장한다.
 - 방향성이 있는 경우, 나가는 이웃들과 들어오는 이웃들을 각각 리스트로 저장할 수 있다.
 
 #### 인접 행렬(Adjacency Matrix)
 
-<img src="/assets/img/sources/2021-02-22-15-09-29.png" width=80%>
+<img src="/assets/img/sources/2021-02-22-15-09-29.png" width="80%">
 
 - 정점 수 × 정점 수 크기의 행렬
 - 방향성이 없는 경우
