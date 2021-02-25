@@ -14,7 +14,7 @@ use_math: True
 딥러닝 코드를 처음부터 짜면 죽을 수도 있으므로 남이 만들어놓은 프레임워크를 가져다 쓴다. Tensorflow, keras, julia, mxnet, theano, caffe, pytorch, cntk, ...  
 이 중에서 우리가 중점적으로 볼 것은 **파이토치와 텐서플로우**이다.
 
-![7](2021-02-23-03-20-53.png)
+![7](/assets/img/sources/2021-02-23-03-20-53.png)
 
 ---
 
