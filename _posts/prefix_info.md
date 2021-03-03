@@ -8,6 +8,7 @@
 - DeepLearning_Basic
 - NLP
 - Graph
+- Master_Class
 
 ## ETC
 
@@ -15,6 +16,7 @@
 - Colab
 - Git
 - Mac
+- Ubuntu
 
 ## DataProcessing
 
@@ -39,3 +41,7 @@
 - ImgCrawling
 - method
 - Graph
+- AI
+- Master_Class
+- Ubuntu
+- TroubleShooting
