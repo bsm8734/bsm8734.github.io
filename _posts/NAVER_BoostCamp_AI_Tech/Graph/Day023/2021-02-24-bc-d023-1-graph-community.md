@@ -59,8 +59,8 @@ use_math: True
   - <u>군집 내부의 간선의 수를 그래프와 배치 모형에서 비교한다.</u>
 - **군집성 수식**
   - ![13](2021-02-26-02-00-41.png)
-  - $|E|$ : 간선의 수
-  - $1 \over {2|E|}$ : $-1 \sim 1$ 사이의 값으로 정규화하는 역할을 한다.
+  - $\left| E \right|$ : 간선의 수
+  - $1 \over {2 \left| E \right|}$ : $-1 \sim 1$ 사이의 값으로 정규화하는 역할을 한다.
   - <span style="color:firebrick">그래프에서 군집 s 내부 간선의 수</span>는 클수록 좋다.
   - <span style="color:darkblue">배치모형에서 군집 s 내부 간선의 수의 기댓값</span>(→ 배치모형이 무작위성을 포함하기 때문)
   > 📌 즉, <span style="color:darkblue">배치모형</span>과 비교했을 때, <span style="color:firebrick">그래프에서 군집 내부 간선의 수</span>가  
@@ -102,7 +102,6 @@ use_math: True
 
 - 대표적인 **하향식(Top-Down) 군집 탐색 알고리즘**
   큰 군집부터 시작하여, 작은 군집으로 쪼개어나간다
-
 
 - (추상적)과정
   - Girvan-Newman 알고리즘은 전체 그래프에서 탐색을 시작한다.
