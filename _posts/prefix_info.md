@@ -9,6 +9,7 @@
 - NLP
 - Graph
 - Master_Class
+- CV
 
 ## ETC
 
@@ -45,3 +46,4 @@
 - Master_Class
 - Ubuntu
 - TroubleShooting
+- CV
