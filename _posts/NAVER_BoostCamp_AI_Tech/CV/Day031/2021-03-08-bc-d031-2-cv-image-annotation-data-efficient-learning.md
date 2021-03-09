@@ -62,7 +62,7 @@ use_math: True
   - 숫자는 Random sampling해서 더해줘도됨
   - 대신 0~255의 값을 가질 떄, 255 size를 넘지 않게 clipping 해줘야함
 
-    ![img2/Untitled%201.png](img2/Untitled%201.png)
+    ![img2/Untitled1.png](img2/Untitled1.png)
 
     - 배수 형태로 밝기 조절도 가능
 
@@ -79,12 +79,12 @@ use_math: True
     - 선은 선으로 유지되고, 길이의 비율과 두ㅜ개 사이의 비율은 유지되어야함
     - 평행관계가 유지
 
-    ![img2/Untitled%202.png](img2/Untitled%202.png)
+    ![img2/Untitled2.png](img2/Untitled2.png)
 
   - 2*2 행렬과, traslation param 2개 필요, → 총 6개의 변환 행렬 값들이 필요
   - 근데 행렬값 하나하나 손으로 넣어주기 어려우니까, 대응하는 점 3개(입력영상의 점 3개)를 잡아서, 출력영상의 점 3개 대응 쌍을 주게 됨
 
-    ![img2/Untitled%203.png](img2/Untitled%203.png)
+    ![img2/Untitled3.png](img2/Untitled3.png)
 
   - 함수에 위의 대응쌍 3쌍을 넣게되면, 6개의 변환 행렬값이 차있는 행렬이 반환이 될 것
   - 맨 마지막은 001로 맞춘 변환행렬이 나오게 될 것
@@ -96,7 +96,7 @@ use_math: True
   - 두 영상을 잘라서 합성
   - 합성시켜서 증강
 
-    ![img2/Untitled%204.png](img2/Untitled%204.png)
+    ![img2/Untitled4.png](img2/Untitled4.png)
 
     - 만약 강아지 종류가 다르면, 영상만 잘라서 합성하는것이 아닌, 라벨도 합성해주는 것이 키포인트!
     - 이거 간단해보이지만, 이 방법을 사용하면, 손쉽게, 의미있는 수준의 성능향상!
@@ -131,7 +131,7 @@ use_math: True
 - 입력데이터(with 레이블) 필요 → 인건비
 - 이런 데이터를 단기간에 대규모로 얻기가 힘들 것
 
-![img2/Untitled%205.png](img2/Untitled%205.png)
+![img2/Untitled5.png](img2/Untitled5.png)
 
 - 근데 아웃소싱같이 외주 맡기면, 왼쪽을 만들어달라고하면 오른쪽을 얻을수밖에... 이를 고퀄로 유지하는 방안도 필요
 - 비용을 줄이기 위한 방법: Transfer learning
@@ -173,7 +173,7 @@ use_math: True
 
 ### Knowledge distillation
 
-![img2/Untitled%206.png](img2/Untitled%206.png)
+![img2/Untitled6.png](img2/Untitled6.png)
 
 - pre-trained 모델이 가지는 지식을 이용하는 더 진보된 방법
 - 간단하면서 강력
@@ -184,7 +184,7 @@ use_math: True
   - 이는 더 큰 student network를 사용할때에도 regularization역할을 함❓
   - 더 많은 데이터를 사용할 수 있게 되므로
 
-![img2/Untitled%207.png](img2/Untitled%207.png)
+![img2/Untitled7.png](img2/Untitled7.png)
 
 - Standard한 knowledge distillation은 위와 같이 pre-trained model을 feature model로 준비하고, 아직 학습되지 않은 네트워크를 initialize
 - 이때, student는 작은 것을 사용하는 것이 일반적(모델압축처럼)
@@ -198,19 +198,19 @@ use_math: True
 
 - 만약 레이블이 존재하는 데이터를 가지고 있을 때, 어떻게  knowledge distillation?
 
-    ![img2/Untitled%208.png](img2/Untitled%208.png)
+    ![img2/Untitled8.png](img2/Untitled8.png)
 
   - 레이블이 있는 데이터가 존재하므로, true label을 통해서 loss 측정가능
   - 이때, ground truth를 사용한 loss를 student loss라고 함
   - 이전에 배운, teacher를 따라가게 만드는 loss를 distillation loss라고 함
-    ![img2/Untitled%209.png](img2/Untitled%209.png)
+    ![img2/Untitled9.png](img2/Untitled9.png)
     - distillation 할떄에는 soft prediction 사용
     - soft prediction: quantize되지 않은 실수를 가질 수 있는 값
-    ![img2/Untitled%2010.png](img2/Untitled%2010.png)
+    ![img2/Untitled10.png](img2/Untitled10.png)
     - 일반적인 영상인식 모델을 학습할 때, 정답레이블은 N개의 클래스 중 하나임을 표시할 때, 원핫벡터를 통해서 나타냄 → hard label
     - soft label → 0, 1이 아닌, 사이값이 존재. soft max를 통해 나온 결과는 우측같은 실수가 나오게 됨
     - distillation에서는 각각의 값들의 전반적인 경향성이 knowledge를 나타낸다고 가정을 하고, 하나의 모델이 입력을보고, 어떤 생각을 하고있는지 요런 soft pre
-    ![img2/Untitled%2011.png](img2/Untitled%2011.png)
+    ![img2/Untitled11.png](img2/Untitled11.png)
     - soft prediction은 softmax를 통해서 나오게 됨
     - temperature (T)의 개념?
       - softmax: 모델에서 나온 출력을 통해서 soft prediction을 만드는 역할
@@ -219,19 +219,19 @@ use_math: True
         - 즉 0, 1보다는 전체 softmax의 크고 작음들이 지식을 표현하는데에 더 유용하다고 보는 것
         - 극단적으로 0, 1만 있는 것보다는, 0~1사이의 중간값을 가지면서, 입력에 따라 민감하게 신호가 바뀌게 만들어서, student가 teacher를 더 잘 따라하도록 하는 것
 
-    ![img2/Untitled%2012.png](img2/Untitled%2012.png)
+    ![img2/Untitled12.png](img2/Untitled12.png)
 
     - 좌: 거의 0 근처에는 정보가 없고, 어디에 peak가 있다는 정보만 가질 뿐
     - 우: 중간에 몰려있으면, 어느것이 큰지, 작은지, 전반적인 분포를 알 수 있으므로, 더 많은 정보를 가지고 있을 것이라 생각할 수 있음
 
-    ![img2/Untitled%2013.png](img2/Untitled%2013.png)
+    ![img2/Untitled13.png](img2/Untitled13.png)
 
     - "semantic inform은 고려하지 않는다"는 것은 무슨 의미일까?
       - teacher에서 나온 output의 각각 dim이, pretrain할 떄 사용되었던 어떠한, 이전 task class들과 연관이 되어있음(위 빨간네모)
       - (아래 빨간 동그라미)student loss로 학습하는 이 데이터는, pre training dataset과 전혀 다른 태스크일 수 있음(label 정보가 겹치지 않는다던지, 카테고리가 겹치지 않는다던지)
       - 중복되는 정보가 없더라도, soft label에 발생하는 하나하나 dim들의 각각의 의미가 중요하다기보다는, 전체의 개형이 추상적인 지식의 형태를 표현하고 있어서, 행동 자체를 따라하도록 만드는 것이 중요하지, 내부 각각의 semantic 의미가 중요하다는 것은 아니다. ❓
 
-    ![img2/Untitled%2014.png](img2/Untitled%2014.png)
+    ![img2/Untitled14.png](img2/Untitled14.png)
 
     - 둘 다 classification 문제에 대해서, cross entropy 계열의 loss를 사용하게 됨
     - student: hard label이 gt로 부터 주어지기 때문에 , 일반적인 Cross Entropy를 그대로 사용
@@ -242,13 +242,13 @@ use_math: True
       - teacher와 student의 prediction 결과의 차이를 measure
       - 이로서, student가 teacher를 따라하게 만드는 loss
 
-![img2/Untitled%2015.png](img2/Untitled%2015.png)
+![img2/Untitled15.png](img2/Untitled15.png)
 
 - 결국, 레이블이 있는 데이터의 경우, distillation loss와 student loss를 둘다 사용하게 되는데
   - 둘의 weighted sum을 사용해서 학습(합쳐서 사용)
 - 역전파의 경로는 다음과 같음
 
-![img2/Untitled%2016.png](img2/Untitled%2016.png)
+![img2/Untitled16.png](img2/Untitled16.png)
 
 - 결국 student model만 학습
 
@@ -271,7 +271,7 @@ leveraging unlabeled dataset for training
 - 아까 knowledge distillation이 pseudo label을 생성해서, 활용할수도 있다고 했는데, 이 예제가 그거!
 - 방법
 
-![img2/Untitled%2017.png](img2/Untitled%2017.png)
+![img2/Untitled17.png](img2/Untitled17.png)
 
 - 레이블 데이터로 모델을 먼저 pre-train(label 된 small scale의 데이터셋)
 - unlabeled의 pseudo data를 이 모델을 통해서 가짜로 잔뜩 생성(자동으로 생성)
@@ -284,7 +284,7 @@ leveraging unlabeled dataset for training
   - 성능향상 괄목할만했지만, 성능 자체가 압도적
   - augmentation, teacher-student network, knowle d~ distill~, SSL을 합친 방식
 
-    ![img2/Untitled%2018.png](img2/Untitled%2018.png)
+    ![img2/Untitled18.png](img2/Untitled18.png)
 
 - Self-training with noisy student 방법
   - SSL 방식과 유사
@@ -298,12 +298,12 @@ leveraging unlabeled dataset for training
     - 또 새로운 student model을 학습...
     - 이를 반복
 
-    ![img2/Untitled%2019.png](img2/Untitled%2019.png)
+    ![img2/Untitled19.png](img2/Untitled19.png)
 
     - 이전에 distillation에서는 teacher가 더 크고, student가 더 작은 네트워크라고 했는데, 여기서는 그 반대로 사용을 한다.
     - student 모델이 조금씩 더 커짐..!
 
-    ![img2/Untitled%2020.png](img2/Untitled%2020.png)
+    ![img2/Untitled.png](img2/Untitled.png)
 
     - 방금전 cycle loop를 펼쳐서 보여주는 diagram
     - 모델이 대체되어가는 것을 명확히 보여줌
