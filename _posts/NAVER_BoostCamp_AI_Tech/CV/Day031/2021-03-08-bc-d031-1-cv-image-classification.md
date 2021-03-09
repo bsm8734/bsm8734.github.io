@@ -72,15 +72,15 @@ use_math: True
 - 사람의 시각능력
   - 치명적 불안정성있을 수 있음
   - ex) 눈과 시각을 담당하는 뇌부분 학습 시, 똑바른 상태만 많이 봐서 시각기능이 bias되어 학습되어있음
-    ![(1%E1%84%80%E1%85%A1%E1%86%BC)%20Image%20Classification%201%20fc821b21d7bf4fa3b6547d720f10c6a5/Untitled.png]((1%E1%84%80%E1%85%A1%E1%86%BC)%20Image%20Classification%201%20fc821b21d7bf4fa3b6547d720f10c6a5/Untitled.png)
+    ![img1/Untitled.png](img1/Untitled.png)
   - 사람의 시각에 대한 장단점 이해를 함으로서, 이런 치명성을 보완할 수 있음
   - 고전 ML
-    ![(1%E1%84%80%E1%85%A1%E1%86%BC)%20Image%20Classification%201%20fc821b21d7bf4fa3b6547d720f10c6a5/Untitled%201.png]((1%E1%84%80%E1%85%A1%E1%86%BC)%20Image%20Classification%201%20fc821b21d7bf4fa3b6547d720f10c6a5/Untitled%201.png)
+    ![img1/Untitled%201.png](img1/Untitled%201.png)
     - 전문가가 feature extraction(노이즈, 특징 분리, ..) 방법론 설계
     - feature: 어떤 특징이 데이터를 잘 특정하겠다
     - 간단한 모델을 통해 target task 해결
 - 딥러닝
-    ![(1%E1%84%80%E1%85%A1%E1%86%BC)%20Image%20Classification%201%20fc821b21d7bf4fa3b6547d720f10c6a5/Untitled%202.png]((1%E1%84%80%E1%85%A1%E1%86%BC)%20Image%20Classification%201%20fc821b21d7bf4fa3b6547d720f10c6a5/Untitled%202.png)
+    ![img1/Untitled%202.png](img1/Untitled%202.png)
   - 전문가가 특징 추출하지 않고, end to end 처음부터 끝까지
   - 사람은 선입견을 가지고 있을 수 있음
   - 사람이 특징을 간과하기 쉽고, 특징을 어떻게 표현하는지에 대해서도 성능이 달라짐
@@ -167,7 +167,7 @@ KNN 알고리즘을 기반으로, 모든 데이터들을 다 가지고 있다고
     - 학습데 엄청난 데이터 사용
     - 중간에 렐루라는 non-linear activation func
   - 네트워크 구조
-    ![(1%E1%84%80%E1%85%A1%E1%86%BC)%20Image%20Classification%201%20fc821b21d7bf4fa3b6547d720f10c6a5/Untitled%203.png]((1%E1%84%80%E1%85%A1%E1%86%BC)%20Image%20Classification%201%20fc821b21d7bf4fa3b6547d720f10c6a5/Untitled%203.png)
+    ![img1/Untitled%203.png](img1/Untitled%203.png)
 
     - 각 레이어별로, activation map의 사이즈를 표현한 다이어그램
     - 네트워크 패스가 두개로 나뉨
@@ -180,7 +180,7 @@ KNN 알고리즘을 기반으로, 모든 데이터들을 다 가지고 있다고
 
 - 2 stream을 단일 stream으로 만든 아키텍쳐
 
-![(1%E1%84%80%E1%85%A1%E1%86%BC)%20Image%20Classification%201%20fc821b21d7bf4fa3b6547d720f10c6a5/Untitled%204.png]((1%E1%84%80%E1%85%A1%E1%86%BC)%20Image%20Classification%201%20fc821b21d7bf4fa3b6547d720f10c6a5/Untitled%204.png)
+![img1/Untitled%204.png](img1/Untitled%204.png)
 
 - LRN(normalization layer)는 뻈음
 - conv, relu, max pool의 반복..
@@ -211,7 +211,7 @@ KNN 알고리즘을 기반으로, 모든 데이터들을 다 가지고 있다고
 - receptive filter size
 - 연산 결과로 하나의 element가 나올때, 이 elem이 나오게 만들어준, 의존성이 있는 입력픽셀의 영역
 
-![(1%E1%84%80%E1%85%A1%E1%86%BC)%20Image%20Classification%201%20fc821b21d7bf4fa3b6547d720f10c6a5/Untitled%205.png]((1%E1%84%80%E1%85%A1%E1%86%BC)%20Image%20Classification%201%20fc821b21d7bf4fa3b6547d720f10c6a5/Untitled%205.png)
+![img1/Untitled%205.png](img1/Untitled%205.png)
 
 - 여기서 본다면, 우측 하나의 elem을 결정하기 위해서 3*3 영역이 이 값을 결정했음(3*3 conv 사용했다고 했을 때) → 의존성이 있다고 볼 수 있음
 - 그리고 여기서 input space에서의 영역을 receptive field라고 함
@@ -220,7 +220,7 @@ KNN 알고리즘을 기반으로, 모든 데이터들을 다 가지고 있다고
   - 값 하나를 위해서 많은 영역을 고려했다
 - input space 에서의 영역을 봐야하므로 가장 밑 레이어까지 쭉 내린다고 생각
 
-![(1%E1%84%80%E1%85%A1%E1%86%BC)%20Image%20Classification%201%20fc821b21d7bf4fa3b6547d720f10c6a5/Untitled%206.png]((1%E1%84%80%E1%85%A1%E1%86%BC)%20Image%20Classification%201%20fc821b21d7bf4fa3b6547d720f10c6a5/Untitled%206.png)
+![img1/Untitled%206.png](img1/Untitled%206.png)
 
 - 결국, 하나의 값이 결정되기까지 어느정도 영역을 참조했는가 = recep`~~ field
 - recep field 결정하는 식
