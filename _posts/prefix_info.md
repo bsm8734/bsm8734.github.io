@@ -25,8 +25,6 @@
 
 ## Cheat_Sheet
 
-- DL
-
 ---
 
 # tags
