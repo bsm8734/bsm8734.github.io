@@ -1,7 +1,7 @@
 ---
 title: "[부스트캠프 AI Tech / P Stage1] Lecture1 - competition?"
 data: 2021-03-29 20:30:00 +0800
-categories: [네이버 부스트캠프 AI Tech (P stage), (P1)Image Classification]
+categories: [네이버 부스트캠프 AI Tech (P stage), (P stage 1) Image Classification]
 tags: [CV, ImageClassification]
 ---
 

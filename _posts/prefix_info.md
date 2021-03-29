@@ -13,7 +13,7 @@
 
 ## 네이버 부스트캠프 AI Tech (P stage)
 
-- (P1)Image Classification
+- (P stage 1) Image Classification
 - TIL
 
 ## ETC
