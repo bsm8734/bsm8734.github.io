@@ -11,6 +11,11 @@
 - Master_Class
 - CV
 
+## 네이버 부스트캠프 AI Tech (P stage)
+
+- (P1)Image Classification
+- TIL
+
 ## ETC
 
 - Jekyll
@@ -49,4 +54,4 @@
 - Ubuntu
 - TroubleShooting
 - CV
-- CheetSheet
+- ImageClassification
