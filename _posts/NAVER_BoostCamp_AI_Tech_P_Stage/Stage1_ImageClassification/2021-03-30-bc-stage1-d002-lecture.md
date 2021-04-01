@@ -1,6 +1,6 @@
 ---
 title: "[부스트캠프 AI Tech / P Stage1] Lecture2 - Dataset & Data Generation"
-data: 2021-03-29 20:30:00 +0800
+data: 2021-03-30 20:30:00 +0800
 categories: [네이버 부스트캠프 AI Tech (P stage), (P stage 1) Image Classification]
 tags: [CV, ImageClassification]
 ---
@@ -77,14 +77,14 @@ tags: [CV, ImageClassification]
 - 다양한 종류가 있고, 사용하기 간편함
 - compose에 넣어서 한번에 util처럼 사용할 수 있음
 
-![img](2021-03-31-03-14-36.png)
+![img](/assets/img/sources/2021-03-31-03-14-36.png)
 
 ##### `Albunentations`
 
 - 패키지, pip 설치 가능
 - transforms 보다 더 다양한 기능이 존재하며, 더 빠름
 - 벤치마크
-  ![img](2021-03-31-02-53-07.png)
+  ![img](/assets/img/sources/2021-03-31-02-53-07.png)
 
 > 위와 같은 함수들은 도구일 뿐이므로, 완벽한 결과를 보장하지 않는다.  
 > 앞서 정의한 주제(problem)을 깊이 관찰해서, 어떤 기법을 적용하면 이러한 다양성, 강점을 가질 수 있겠다 가정하고, 실험으로 증명해야한다.
@@ -112,7 +112,7 @@ tags: [CV, ImageClassification]
 ### Dataset
 
 - Dataset: 원하는 형태로 데이터를 뿌려주기 위해서 변형되어야 한다.  
-![img](2021-03-31-03-01-13.png)  
+![img](/assets/img/sources/2021-03-31-03-01-13.png)  
 - 내 데이터를 pytorch 데이터셋 형태로 만드는 것
 - Dataset 클래스에 상속시켜주어야 한다.
   - torch가 할 수 있는 기능 동작해야하므로, 행세를 하기 위해서 클래스에 상속되어져, 사용된다. 
@@ -133,13 +133,13 @@ tags: [CV, ImageClassification]
 
 - 내가 만든 dataset을 효율적으로 사용할 수 있도록 관련 기능을 추가하는 것
 - 기능이 굉장히 많고, 어떤 것을 같이 조합하느냐에 따라 성능이 바뀐다.  
-![img](2021-03-31-03-06-51.png)  
+![img](/assets/img/sources/2021-03-31-03-06-51.png)  
 - ex) collate_fn: 배치마다(단위마다) 함수 정의 가능
 - ex) num_workers: 스레드 수 (코어 수) 검증, 테스트 해보고 잘 조절해보기(그냥 무작정 스레드 늘려도 효율이 안좋다고 함)
 
-<img src="2021-03-31-03-09-12.png" width="50%">  
+<img src="/assets/img/sources/2021-03-31-03-09-12.png" width="50%">  
 
-![img](2021-03-31-03-10-03.png)   
+![img](/assets/img/sources/2021-03-31-03-10-03.png)   
 
 - 이렇게 쓴다고 한다.
 
