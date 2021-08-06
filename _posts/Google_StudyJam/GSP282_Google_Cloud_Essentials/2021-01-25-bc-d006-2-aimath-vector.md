@@ -1,0 +1,69 @@
+---
+title: "[GSP282] CH1. Qwiklabs 및 Google Cloud 둘러보기"
+data: 2021-08-06 11:30:00 +0800
+categories: [2021 구글 스터디잼, GSP282 Google Cloud Essentials]
+tags: [구글 스터디잼]
+use_math: True
+---
+
+
+## **[CH1] Qwiklabs 및 Google Cloud 둘러보기**
+
+---
+
+- Qwiklabs 및 Google Cloud Platform 콘솔 접근하기
+- 기본 GCP feature인 Projects, Resources, IAM Users, Roles, Permissions, APIs, Cloud Shell에 대해 알아보기
+
+### 실습
+
+- Qwiklabs
+  - 실습 시작(버튼): 모든 서비스와 사용자 인증 정보가 활성화된 임시 GCP 환경이 만들어진다.
+  - 시간: 주어진 시간 내에 실습을 종료해야한다. 시간 종료 시, 임시 GCP 환경과 리소스가 삭제되므로 접근이 불가능하다.
+  - 점수: "활동 추적"을 통해 실습을 점수화 한다. 완료 크레딧을 받으려면 실습을 잘 수행해야 한다.
+- Google Cloud Console
+  - Google 클라우드 프로젝트(프로젝트 ID): 구글 클라우드로 빌드하는 모든 항목을 구성하는 개체를 말한다.
+    - 리소스, 서비스, 보안 규칙, 권한 설정 가능
+    - 프로젝트 ID: 특정 프로젝트에 구글 클라우드 자원 및 API를 연결하는 데 사용되는 고유 식별자(Google Cloud에서 고유하므로, 전역적으로 식별 가능)
+    - 사용자 이름과 비밀번호(사용자 자격증명)는 Cloud IAM(Cloud Identity and Access Management) 서비스의 ID를 나타낸다. 각 ID에 하나 이상의 액세스 권한과 역할이 부여된다.
+    - 대기업에서는 팀이나 제품 단위로 프로젝트를 만들기도 한다.
+    - 'Qwiklabs 리소스' 프로젝트에는 특정 실습을 위한 파일, 데이터세트, 머신 이미지가 포함되어 있으며, 모든 Google Cloud 실습 환경에서 액세스할 수 있다. 모든 Qwiklabs 사용자와 공유(읽기 전용)되므로 수정/삭제가 불가능하다.
+- Google Cloud Service
+  1. 컴퓨팅: 모든 유형의 워크로드를 지원하는 다양한 머신 유형을 말한다.
+  2. 스토리지: 정형 또는 비정형, 관계형 또는 비관계형 데이터를 위한 데이터 스토리지 및 데이터베이스 옵션이다.
+  3. 네트워킹: 애플리케이션 트래픽의 균형을 유지하고 보안 규칙을 제공하는 서비스이다.
+  4. 클라우드 작업: 클라우드 간, 로깅, 모니터링, 추적 및 기타 서비스 안정성 도구 모음이다.
+  5. 도구: 개발자가 배포 및 애플리케이션 빌드 파이프라인을 관리하는 데 도움이 되는 서비스이다.
+  6. 빅데이터: 대규모 데이터 세트를 처리하고 분석할 수 있는 서비스이다.
+  7. 인공지능: Google Cloud에서 특정 인공지능 및 머신러닝 작업을 실행하는 API 제품군이다.
+    > 문서참고: https://cloud.google.com/docs/overview/cloud-platform-services#top_of_page
+- 역할 및 권한
+  - 역할/권한 확인: 좌측 탐색메뉴에서 `IAM 및 관리`를 확인한다. 사용자 목록이 포함된 페이지가 열리고 특정 계정에 부여된 권한과 역할이 지정된다.
+    | 역할이름 | 권한 |
+    |-------|------|
+    |역할/시청자|기존 리소스 또는 데이터 보기(수정 불가)와 같이 상태에 영향을 주지 않는 읽기 전용 작업에 대한 권한|
+    |역할/편집자|GCP 리소스를 생성, 수정, 삭제할 수 있으나, GCP 프로젝트에서 구성원을 추가하거나 삭제할 수 없음|
+    |역할/소유자|다음 작업에 대한 모든 편집자 권한 및 권한: 프로젝트 및 프로젝트 내의 모든 리소스에 대한 역할 및 권한을 관리. 프로젝트에 대한 청구를 설정|
+- API
+  - 좌측 탐색 메뉴에서 `API 및 서비스` > `라이브러리`
+  - 원하는 API를 찾아서, `사용` 버튼을 누르면, API 활성화 표시가 된다.
+  - Google Cloud 작업을 시작하려면 프로젝트에서 API를 사용 설정하지 않아도 된다.
+- Cloud Shell
+  - Google Cloud Console 열기(우측 상단 터미널 아이콘)
+  - 자격 증명 리스트 확인: `gcloud auth list`
+    - ACTIVE ACCOUNT는 Cloud IAM 자격 증명으로 설정된다.
+    - 예시 output
+        ```shell
+            Credentialed Accounts
+            ACTIVE  ACCOUNT
+            *       gcpstaging23396_student@qwiklabs.net
+            To set the active account, run:
+                $ gcloud config set account `ACCOUNT`
+        ```
+    - Cloud Shell에는 특정 명령줄 도구(gcloud)가 사전 설치되어 있다.
+    - gcloud(기본 Google Cloud 툴킷): 리소스 관리 및 사용자 인증 등에 사용된다.
+      - → 이전에 Google Cloud API 쓰려고 했을 때, gcloud를 로컬에서 따로 설치해줬어야 했는데, 브라우저를 통해 Google Cloud Console에는 미리 깔려있다.
+사전 설치된 도구 키트 외에도 Cloud Shell은 표준 Unix 명령줄 인터페이스(CLI) 도구 및 nano 와 같은 텍스트 편집기와 함께 제공 됩니다. 이를 사용하여 Cloud Shell 내에서 파일을 만들고 편집할 수 있습니다.
+파일을 만들려면 test.txt다음 touch명령을 실행합니다 .
+- 기본적인 Shell 명령어
+  - `touch test.txt` : 파일 생성
+  - `cat test.txt` : 파일의 내용을 콘솔에 출력

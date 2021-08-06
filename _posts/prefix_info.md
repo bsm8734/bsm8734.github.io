@@ -1,6 +1,10 @@
 
 # categories
 
+## 2021 구글 스터디잼
+
+- GSP282 Google Cloud Essentials
+
 ## 네이버 부스트캠프 AI Tech
 
 - Python
