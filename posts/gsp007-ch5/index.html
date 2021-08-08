@@ -1,0 +1,209 @@
+<!DOCTYPE html><html lang="en" mode="light" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="theme" content="Chirpy v2.7.2"><meta name="generator" content="Jekyll v4.2.0" /><meta property="og:title" content="[GSP007] CH5. Set Up Network and HTTP Load Balancers" /><meta name="author" content="Bae Soomin" /><meta property="og:locale" content="en_US" /><meta name="description" content="[CH5] Set Up Network and HTTP Load Balancers" /><meta property="og:description" content="[CH5] Set Up Network and HTTP Load Balancers" /><link rel="canonical" href="https://bsm8734.github.io/posts/gsp007-ch5/" /><meta property="og:url" content="https://bsm8734.github.io/posts/gsp007-ch5/" /><meta property="og:site_name" content="Always Awake Sally" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2021-08-08T00:00:00+09:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="[GSP007] CH5. Set Up Network and HTTP Load Balancers" /><meta name="twitter:site" content="@twitter_username" /><meta name="twitter:creator" content="@Bae Soomin" /><meta name="google-site-verification" content="google_meta_tag_verification" /> <script type="application/ld+json"> {"author":{"@type":"Person","name":"Bae Soomin"},"description":"[CH5] Set Up Network and HTTP Load Balancers","url":"https://bsm8734.github.io/posts/gsp007-ch5/","@type":"BlogPosting","headline":"[GSP007] CH5. Set Up Network and HTTP Load Balancers","dateModified":"2021-08-08T00:00:00+09:00","datePublished":"2021-08-08T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://bsm8734.github.io/posts/gsp007-ch5/"},"@context":"https://schema.org"}</script><title>[GSP007] CH5. Set Up Network and HTTP Load Balancers | Always Awake Sally</title><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="apple-touch-icon" href="/assets/img/favicons/apple-icon.png"><link rel="apple-touch-icon" href="/assets/img/favicons/apple-icon-precomposed.png"><link rel="apple-touch-icon" sizes="57x57" href="/assets/img/favicons/apple-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="/assets/img/favicons/apple-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicons/apple-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicons/apple-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicons/apple-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicons/apple-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicons/apple-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="/assets/img/favicons/apple-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-icon-180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicons/android-icon-192x192.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicons/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/img/favicons/manifest.json"><meta name='msapplication-config' content='/assets/img/favicons/browserconfig.xml'><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/assets/img/favicons/ms-icon-144x144.png"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://fonts.gstatic.com"><link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials"><link rel="dns-prefetch" href="https://www.google-analytics.com"><link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="preconnect" href="cdn.jsdelivr.net"><link rel="dns-prefetch" href="cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous"><link rel="preload" href="/assets/css/post.css" as="style"><link rel="stylesheet" href="/assets/css/post.css"><link rel="preload" as="style" href="/assets/css/lib/bootstrap-toc.min.css"><link rel="stylesheet" href="/assets/css/lib/bootstrap-toc.min.css" /> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script> <script defer src="https://cdn.jsdelivr.net/combine/npm/popper.js@1.15.0,npm/bootstrap@4/dist/js/bootstrap.min.js"></script> <script async src="/assets/js/post.min.js"></script> <script defer src="/app.js"></script> <script defer src="https://www.googletagmanager.com/gtag/js?id="></script> <script> document.addEventListener("DOMContentLoaded", function(event) { window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', ''); }); </script><body data-spy="scroll" data-target="#toc"><div id="sidebar" class="d-flex flex-column align-items-end"><div class="profile-wrapper text-center"><div id="avatar"> <a href="/" alt="avatar" class="mx-auto"> <img src="/assets/img/my_image/Sally_wallpaper.jpg" alt="avatar" onerror="this.style.display='none'"> </a></div><div class="site-title mt-3"> <a href="/">Always Awake Sally</a></div><div class="site-subtitle font-italic">24시간이 모자라</div></div><ul class="w-100"><li class="nav-item"> <a href="/" class="nav-link"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item"> <a href="/tabs/categories/" class="nav-link"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item"> <a href="/tabs/tags/" class="nav-link"> <i class="fa-fw fas fa-tags ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item"> <a href="/tabs/archives/" class="nav-link"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item"> <a href="/tabs/about/" class="nav-link"> <i class="fa-fw fas fa-info ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul><div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center"> <a href="https://github.com/bsm8734" aria-label="github" target="_blank" rel="noopener"> <i class="fab fa-github-alt"></i> </a> <a href="https://twitter.com/twitter_username" aria-label="twitter" target="_blank" rel="noopener"> <i class="fab fa-twitter"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['bsm8734','naver.com'].join('@')" aria-label="email" > <i class="fas fa-envelope"></i> </a> <a href="/feed.xml" aria-label="rss" > <i class="fas fa-rss"></i> </a></div></div><div id="topbar-wrapper" class="row justify-content-center topbar-down"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/"> Posts </a> </span> <span>[GSP007] CH5. Set Up Network and HTTP Load Balancers</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" placeholder="Search..."> <i class="fa fa-times-circle fa-fw" id="search-cleaner"></i> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper"><div id="main"><div class="row"><div id="post-wrapper" class="col-12 col-lg-11 col-xl-8"><div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><h1 data-toc-skip>[GSP007] CH5. Set Up Network and HTTP Load Balancers</h1><div class="post-meta text-muted d-flex flex-column"><div> <span class="timeago " data-toggle="tooltip" data-placement="bottom" title="Sun, Aug 8, 2021, 12:00 AM +0900" > Aug 8 <i class="unloaded">2021-08-08T00:00:00+09:00</i> </span> by <span class="author"> Bae Soomin </span></div><div> <span class="readtime" data-toggle="tooltip" data-placement="bottom" title="2145 words">11 min</span></div></div><div class="post-content"><h2 id="ch5-set-up-network-and-http-load-balancers"><strong>[CH5] Set Up Network and HTTP Load Balancers</strong></h2><hr /><ul><li>Compute Engine 가상 머신에서 실행되는 애플리케이션에 대해 네트워크 로드 밸런서와 HTTP 로드 밸런서를 모두 설정하는 방법을 배움<li>이 실습에서는 네트워크 부하 분산기와 HTTP 부하 분산기의 차이점과 Compute Engine 가상 머신(VM)에서 실행되는 애플리케이션에 대해 설정하는 방법을 알아본다.<li>GCP에서 부하를 분산하는 여러 방법<ul><li>네트워크 로드 밸런서<li>HTTP(s) 로드 밸런서</ul><li>실습내용<ul><li>네트워크 부하 분산 장치를 설정<li>HTTP 부하 분산 장치를 설정<li>네트워크 로드 밸런서와 HTTP 로드 밸런서의 차이점을 배우기</ul></ul><h3 id="실습">실습</h3><ul><li>Google Console &gt; Cloud Shell 활성화<div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre>  <span class="o">&gt;</span> gcloud config <span class="nb">set </span>project <span class="o">[</span>Project ID]
+  <span class="o">&gt;</span> gcloud auth list
+  <span class="o">&gt;</span> gcloud config list project
+</pre></table></code></div></div></ul><h3 id="task1-모든-리소스에-대한-zoneregion-설정">Task1. 모든 리소스에 대한 zone/region 설정</h3><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre><span class="o">&gt;</span> gcloud config <span class="nb">set </span>compute/zone us-central1-a
+<span class="o">&gt;</span> gcloud config <span class="nb">set </span>compute/region us-central1
+</pre></table></code></div></div><h3 id="task2-여러-웹-서버-인스턴스-만들기">Task2. 여러 웹 서버 인스턴스 만들기</h3><ol><li>3개의 Compute Engine VM 인스턴스를 만들고, 여기에 Apache를 설치한 다음, HTTP 트래픽이 인스턴스에 도달하도록 허용하는 방화벽 규칙을 추가한다.<ul><li>기본 영역에 3개의 새 가상 머신을 만들고 모두 동일한 태그를 지정한다.<li>zone: <code class="language-plaintext highlighter-rouge">us-central1-a</code><li>tag: <code class="language-plaintext highlighter-rouge">network-lb-tag</code><ul><li>태그 필드를 설정하면 방화벽 규칙과 같이 이러한 인스턴스를 한 번에 참조할 수 있다.<li>각 인스턴스에 Apache를 설치하고, 각 인스턴스에 고유한 홈페이지를 제공한다.<div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre><td class="rouge-code"><pre> gcloud compute instances create www1 <span class="se">\</span>
+ <span class="nt">--image-family</span> debian-9 <span class="se">\</span>
+ <span class="nt">--image-project</span> debian-cloud <span class="se">\</span>
+ <span class="nt">--zone</span> us-central1-a <span class="se">\</span>
+ <span class="nt">--tags</span> network-lb-tag <span class="se">\</span>
+ <span class="nt">--metadata</span> startup-script<span class="o">=</span><span class="s2">"#! /bin/bash
+ sudo apt-get update
+ sudo apt-get install apache2 -y
+ sudo service apache2 restart
+ echo '&lt;!doctype html&gt;&lt;html&gt;&lt;body&gt;&lt;h1&gt;www1&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;' | tee /var/www/html/index.html"</span>
+</pre></table></code></div></div><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre><td class="rouge-code"><pre> gcloud compute instances create www2 <span class="se">\</span>
+ <span class="nt">--image-family</span> debian-9 <span class="se">\</span>
+ <span class="nt">--image-project</span> debian-cloud <span class="se">\</span>
+ <span class="nt">--zone</span> us-central1-a <span class="se">\</span>
+ <span class="nt">--tags</span> network-lb-tag <span class="se">\</span>
+ <span class="nt">--metadata</span> startup-script<span class="o">=</span><span class="s2">"#! /bin/bash
+ sudo apt-get update
+ sudo apt-get install apache2 -y
+ sudo service apache2 restart
+ echo '&lt;!doctype html&gt;&lt;html&gt;&lt;body&gt;&lt;h1&gt;www2&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;' | tee /var/www/html/index.html"</span>
+</pre></table></code></div></div><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre><td class="rouge-code"><pre> gcloud compute instances create www3 <span class="se">\</span>
+ <span class="nt">--image-family</span> debian-9 <span class="se">\</span>
+ <span class="nt">--image-project</span> debian-cloud <span class="se">\</span>
+ <span class="nt">--zone</span> us-central1-a <span class="se">\</span>
+ <span class="nt">--tags</span> network-lb-tag <span class="se">\</span>
+ <span class="nt">--metadata</span> startup-script<span class="o">=</span><span class="s2">"#! /bin/bash
+ sudo apt-get update
+ sudo apt-get install apache2 -y
+ sudo service apache2 restart
+ echo '&lt;!doctype html&gt;&lt;html&gt;&lt;body&gt;&lt;h1&gt;www3&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;' | tee /var/www/html/index.html"</span>
+</pre></table></code></div></div></ul></ul><li>VM 인스턴스에 대한 외부 트래픽을 허용하는 방화벽 규칙을 만든다.<div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre> gcloud compute firewall-rules create www-firewall-network-lb <span class="se">\</span>
+     <span class="nt">--target-tags</span> network-lb-tag <span class="nt">--allow</span> tcp:80
+</pre></table></code></div></div><li>인스턴스를 나열해보기<ul><li><code class="language-plaintext highlighter-rouge">EXTERNAL_IP</code> 열에 IP 주소가 표시된다.<div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre> gcloud compute instances list
+</pre></table></code></div></div></ul><li>각 인스턴스가 실행 중인지 확인(curl 사용해보기)<ul><li>[IP_ADDRESS] 를 각 VM의 (external) IP 주소로 변경해서 확인하기<div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>curl http://[IP_ADDRESS]
+</pre></table></code></div></div></ul></ol><h3 id="task3-부하-분산-서비스-구성">Task3. 부하 분산 서비스 구성</h3><ul><li>로드 밸런싱 서비스를 구성할 때, VM 인스턴스는 구성한 고정 External IP 주소로 향하는 패킷을 수신한다.<li>Compute Engine 이미지로 만든 인스턴스는 이 IP 주소를 처리하도록 자동으로 구성된다.</ul><ol><li>로드 밸런서에 대한 고정 외부 IP 주소를 생성<div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre>   gcloud compute addresses create network-lb-ip-1 <span class="se">\</span>
+   <span class="nt">--region</span> us-central1
+</pre></table></code></div></div><li>기존 HTTP 상태 확인 리소스를 추가<div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>   gcloud compute http-health-checks create basic-check
+</pre></table></code></div></div><li>인스턴스와 동일한 지역에 대상 풀을 추가<ul><li>서비스가 작동하도록 target 풀을 만들고, <code class="language-plaintext highlighter-rouge">health check</code>를 사용한다.<div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre> gcloud compute target-pools create www-pool <span class="se">\</span>
+ <span class="nt">--region</span> us-central1 <span class="nt">--http-health-check</span> basic-check
+</pre></table></code></div></div></ul><li>풀에 인스턴스를 추가<div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre>   gcloud compute target-pools add-instances www-pool <span class="se">\</span>
+   <span class="nt">--instances</span> www1,www2,www3
+</pre></table></code></div></div><li>전달 규칙(forwarding rule) 추가:<div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre>   gcloud compute forwarding-rules create www-rule <span class="se">\</span>
+   <span class="nt">--region</span> us-central1 <span class="se">\</span>
+   <span class="nt">--ports</span> 80 <span class="se">\</span>
+   <span class="nt">--address</span> network-lb-ip-1 <span class="se">\</span>
+   <span class="nt">--target-pool</span> www-pool
+</pre></table></code></div></div></ol><blockquote><p>웹 서버를 가리키는 L4 네트워크 부하 분산 장치가 생성되었다!</p></blockquote><h3 id="task4-인스턴스로-트래픽-보내기">Task4. 인스턴스로 트래픽 보내기</h3><ul><li>지금까지, 로드 밸런싱 서비스가 구성되었다.<li>이제, 트래픽을 전달 규칙으로 보내기 시작하고, 트래픽이 다른 인스턴스로 분산되는 것을 볼 수 있다.<li>로드 밸런서에서 사용하는 www-rule 전달 규칙의 External IP 주소 보기<ul><li><code class="language-plaintext highlighter-rouge">gcloud compute forwarding-rules describe www-rule --region us-central1</code></ul><li>curl 명령을 사용하여, 이전 명령의 외부 IP 주소로 교체하여 외부 IP 주소에 액세스<ul><li><code class="language-plaintext highlighter-rouge">while true; do curl -m1 [IP_ADDRESS1] [IP_ADDRESS2] [IP_ADDRESS3]; done</code><li>curl 명령의 응답은 세 인스턴스 간에 무작위로 번갈아 나타난다.</ul><li><code class="language-plaintext highlighter-rouge">Ctrl + c</code> 를 사용하여 명령어 실행을 중단할 수 있다.</ul><h3 id="task5-http-로드-밸런서-생성">Task5. HTTP 로드 밸런서 생성</h3><ul><li>HTTP(S) 부하 분산은 Google 프런트 엔드(GFE)에서 구현된다.<li>GFE는 전 세계적으로 배포되며 Google의 글로벌 네트워크 및 제어 평면을 사용하여 함께 작동한다.<li>일부 URL을 한 인스턴스 세트로 라우팅하고 다른 URL을 다른 인스턴스로 라우팅하도록 URL 규칙을 구성할 수 있다.<li>해당 그룹의 용량이 충분하고 요청에 적합한 경우 요청은 항상 사용자와 가장 가까운 인스턴스 그룹으로 라우팅된다.<li>가장 가까운 그룹이 충분한 용량이없는 경우, 요청은 가장 가까운 그룹으로 전송된다.<li>Compute Engine 백엔드로 부하 분산기를 설정하려면 VM이 인스턴스 그룹에 있어야 한다.<li>관리형 인스턴스 그룹은 External HTTP Load Balancer의 백엔드 서버를 실행하는 VM을 제공한다.<li>이 실습에서 백엔드는 자신만의 hostname을 제공한다.</ul><ol><li>로드 밸런서 템플릿을 생성<div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre><td class="rouge-code"><pre>   gcloud compute instance-templates create lb-backend-template <span class="se">\</span>
+   <span class="nt">--region</span><span class="o">=</span>us-central1 <span class="se">\</span>
+   <span class="nt">--network</span><span class="o">=</span>default <span class="se">\</span>
+   <span class="nt">--subnet</span><span class="o">=</span>default <span class="se">\</span>
+   <span class="nt">--tags</span><span class="o">=</span>allow-health-check <span class="se">\</span>
+   <span class="nt">--image-family</span><span class="o">=</span>debian-9 <span class="se">\</span>
+   <span class="nt">--image-project</span><span class="o">=</span>debian-cloud <span class="se">\</span>
+   <span class="nt">--metadata</span><span class="o">=</span>startup-script<span class="o">=</span><span class="s1">'#! /bin/bash
+     apt-get update
+     apt-get install apache2 -y
+     a2ensite default-ssl
+     a2enmod ssl
+     vm_hostname="$(curl -H "Metadata-Flavor:Google" \
+     http://169.254.169.254/computeMetadata/v1/instance/name)"
+     echo "Page served from: $vm_hostname" | \
+     tee /var/www/html/index.html
+     systemctl restart apache2'</span>
+</pre></table></code></div></div><li>템플릿을 기반으로 관리형 인스턴스 그룹 생성<div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre>   gcloud compute instance-groups managed create lb-backend-group <span class="se">\</span>
+     <span class="nt">--template</span><span class="o">=</span>lb-backend-template <span class="nt">--size</span><span class="o">=</span>2 <span class="nt">--zone</span><span class="o">=</span>us-central1-a
+</pre></table></code></div></div><li><code class="language-plaintext highlighter-rouge">fw-allow-health-check</code> 방화벽 규칙을 생성<ul><li>이 규칙은 Google 클라우드 상태 점검 시스템(130.211.0.0/22 및 35.191.0.0/16)의 트래픽을 허용하는 수신 규칙이다.<li>이 실습에서는 target tag <code class="language-plaintext highlighter-rouge">allow-health-check</code>를 사용하여 VM을 식별한다.<div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre> gcloud compute firewall-rules create fw-allow-health-check <span class="se">\</span>
+   <span class="nt">--network</span><span class="o">=</span>default <span class="se">\</span>
+   <span class="nt">--action</span><span class="o">=</span>allow <span class="se">\</span>
+   <span class="nt">--direction</span><span class="o">=</span>ingress <span class="se">\</span>
+   <span class="nt">--source-ranges</span><span class="o">=</span>130.211.0.0/22,35.191.0.0/16 <span class="se">\</span>
+   <span class="nt">--target-tags</span><span class="o">=</span>allow-health-check <span class="se">\</span>
+   <span class="nt">--rules</span><span class="o">=</span>tcp:80
+</pre></table></code></div></div><li>→ 이제 인스턴스가 시작되어 running state가 된다.</ul><li>client가 로드 밸런서에 연결하는데 사용되는, <code class="language-plaintext highlighter-rouge">전역 고정 External IP 주소</code>를 설정<div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre>   gcloud compute addresses create lb-ipv4-1 <span class="se">\</span>
+     <span class="nt">--ip-version</span><span class="o">=</span>IPV4 <span class="se">\</span>
+     <span class="nt">--global</span>
+</pre></table></code></div></div><ul><li>예약된 IPv4 주소를 확인<div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre> gcloud compute addresses describe lb-ipv4-1 <span class="se">\</span>
+   <span class="nt">--format</span><span class="o">=</span><span class="s2">"get(address)"</span> <span class="se">\</span>
+   <span class="nt">--global</span>
+</pre></table></code></div></div></ul><li>로드 밸런서에 대한 <code class="language-plaintext highlighter-rouge">healthcheck</code>을 생성<div class="language-plaintext highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre>     gcloud compute health-checks create http http-basic-check \
+         --port 80
+</pre></table></code></div></div><li>백엔드 서비스 생성<div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre>     gcloud compute backend-services create web-backend-service <span class="se">\</span>
+         <span class="nt">--protocol</span><span class="o">=</span>HTTP <span class="se">\</span>
+         <span class="nt">--port-name</span><span class="o">=</span>http <span class="se">\</span>
+         <span class="nt">--health-checks</span><span class="o">=</span>http-basic-check <span class="se">\</span>
+         <span class="nt">--global</span>
+</pre></table></code></div></div><li>백엔드 서비스에 백엔드로 인스턴스 그룹을 추가<div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre>     gcloud compute backend-services add-backend web-backend-service <span class="se">\</span>
+         <span class="nt">--instance-group</span><span class="o">=</span>lb-backend-group <span class="se">\</span>
+         <span class="nt">--instance-group-zone</span><span class="o">=</span>us-central1-a <span class="se">\</span>
+         <span class="nt">--global</span>
+</pre></table></code></div></div><li>들어오는 요청을 기본 백엔드 서비스로 라우팅하는 URL map을 만든다.<div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre>     gcloud compute url-maps create web-map-http <span class="se">\</span>
+         <span class="nt">--default-service</span> web-backend-service
+
+</pre></table></code></div></div><li>URL map으로 요청을 라우팅할 대상 HTTP 프록시를 만든다.<div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre>     gcloud compute target-http-proxies create http-lb-proxy <span class="se">\</span>
+         <span class="nt">--url-map</span> web-map-http
+</pre></table></code></div></div><li>들어오는 요청을 프록시로 라우팅하는 전역 전달 규칙(forwarding rule)을 만든다.<div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre>    gcloud compute forwarding-rules create http-content-rule <span class="se">\</span>
+        <span class="nt">--address</span><span class="o">=</span>lb-ipv4-1<span class="se">\</span>
+        <span class="nt">--global</span> <span class="se">\</span>
+        <span class="nt">--target-http-proxy</span><span class="o">=</span>http-lb-proxy <span class="se">\</span>
+        <span class="nt">--ports</span><span class="o">=</span>80
+</pre></table></code></div></div></ol><blockquote><p>L7 HTTP(S) 로드 밸런서가 생성되었다!</p></blockquote><h3 id="task6-작업-6-인스턴스로-전송되는-트래픽-테스트">Task6. 작업 6: 인스턴스로 전송되는 트래픽 테스트</h3><ul><li>Cloud Console 탐색 메뉴 &gt; Network Services &gt; Load balancing<li>방금 생성한 로드 밸런서를 클릭(web-map-http)<li>백엔드 섹션에서 백엔드 이름을 클릭하고 VM이 정상인지 확인<li>VM이 정상이면, 웹 브라우저를 사용하여(<code class="language-plaintext highlighter-rouge">http://IP_ADDRESS/</code>) 로드 밸런서를 테스트<li>example output: <code class="language-plaintext highlighter-rouge">Page served from: lb-backend-group-xxxx)</code>와 함께, 페이지를 제공한 인스턴스의 이름이 포함된 페이지를 렌더링해야 한다.</ul><blockquote><ul><li>쉽지 않군 :(<li><code class="language-plaintext highlighter-rouge">네트워크 로드 밸런서</code>와 <code class="language-plaintext highlighter-rouge">HTTP(s) 로드 밸런서</code>의 차이에 대해 알아보기<li>단순히 어느 계층에서 로드 밸런서를 만들었는지에 대한 차이인지, 정확한 동작 원리를 알아보자<li>프록시, 인스턴스 그룹, 풀, … 아주 완벽히 이해하지 못한 용어들에 대해 더 알아보자</ul></blockquote></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/categories/2021-%EA%B5%AC%EA%B8%80-%EC%8A%A4%ED%84%B0%EB%94%94%EC%9E%BC/'>2021 구글 스터디잼</a>, <a href='/categories/google-cloud-essentials/'>Google Cloud Essentials</a></div><div class="post-tags"> <i class="fa fa-tags fa-fw mr-1"></i> <a href="/tags/%EA%B5%AC%EA%B8%80-%EC%8A%A4%ED%84%B0%EB%94%94%EC%9E%BC/" class="post-tag no-text-decoration" >구글 스터디잼</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=[GSP007] CH5. Set Up Network and HTTP Load Balancers - Always Awake Sally&url=https://bsm8734.github.io/posts/gsp007-ch5/" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=[GSP007] CH5. Set Up Network and HTTP Load Balancers - Always Awake Sally&u=https://bsm8734.github.io/posts/gsp007-ch5/" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://telegram.me/share?text=[GSP007] CH5. Set Up Network and HTTP Load Balancers - Always Awake Sally&url=https://bsm8734.github.io/posts/gsp007-ch5/" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i class="fa-fw fas fa-link small" onclick="copyLink()" data-toggle="tooltip" data-placement="top" title="Copy link"></i> </span></div></div></div></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted topbar-down"><div class="access"><div id="access-lastmod" class="post"> <span>Recent Update</span><ul class="post-content pl-0 pb-1 ml-1 mt-2"><li><a href="/posts/bc-stage1-d002-lecture/">[부스트캠프 AI Tech / P Stage1] Lecture2 - Dataset & Data Generation</a><li><a href="/posts/bc-stage1-d002-TIL/">[부스트캠프 AI Tech / P Stage1] Day2 TIL</a><li><a href="/posts/bc-d002-5-python-condition-loop/">[부스트캠프 AI Tech / Day2] 파이썬 조건문, 반복문</a><li><a href="/posts/bc-d002-6-python-string/">[부스트캠프 AI Tech / Day2] 파이썬 String</a><li><a href="/posts/bc-d002-today/">[부스트캠프 AI Tech / Day2] Today</a></ul></div><div id="access-tags"> <span>Trending Tags</span><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/python/">Python</a> <a class="post-tag" href="/tags/today/">today</a> <a class="post-tag" href="/tags/dl/">DL</a> <a class="post-tag" href="/tags/ml/">ML</a> <a class="post-tag" href="/tags/math/">Math</a> <a class="post-tag" href="/tags/cv/">CV</a> <a class="post-tag" href="/tags/imageclassification/">ImageClassification</a> <a class="post-tag" href="/tags/graph/">Graph</a> <a class="post-tag" href="/tags/%EA%B5%AC%EA%B8%80-%EC%8A%A4%ED%84%B0%EB%94%94%EC%9E%BC/">구글 스터디잼</a> <a class="post-tag" href="/tags/nlp/">NLP</a></div></div></div><div id="toc-wrapper" class="pl-0 pr-4 mb-5"> <span class="pl-3 pt-2 mb-2">Contents</span><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div class="col-12 col-lg-11 col-xl-8"><div id="post-extend-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/gsp282-ch1/"><div class="card-body"> <span class="timeago small" > Aug 6 <i class="unloaded">2021-08-06T00:00:00+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>[GSP282] CH1. A Tour of Qwiklabs and Google Cloud</h3><div class="text-muted small"><p> [CH1] A Tour of Qwiklabs and Google Cloud Qwiklabs 및 Google Cloud Platform 콘솔 접근하기 기본 GCP feature인 Projects, Resources, IAM Users, Roles, Permissions, APIs, Cloud Shell에 대해 알아보기 실습 Qw...</p></div></div></a></div><div class="card"> <a href="/posts/gsp001-ch2/"><div class="card-body"> <span class="timeago small" > Aug 7 <i class="unloaded">2021-08-07T00:00:00+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>[GSP001] CH2. Creating a Virtual Machine</h3><div class="text-muted small"><p> [CH2] Creating a Virtual Machine Google Compute Engine 가상 머신 만들기 zones, regions, and machine types에 대해 이해하기 실습 Compute Engine을 사용하면 Google 인프라에서 다양한 Linux(Debian, Ubuntu, Suse, Red Ha...</p></div></div></a></div><div class="card"> <a href="/posts/gsp002-ch3/"><div class="card-body"> <span class="timeago small" > Aug 7 <i class="unloaded">2021-08-07T00:00:00+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>[GSP002] CH3. Getting Started with Cloud Shell and gcloud</h3><div class="text-muted small"><p> [CH3] Getting Started with Cloud Shell and gcloud 웹을 통해 Google Cloud Platform에서 호스팅되는 컴퓨팅 리소스에 연결하는 방법을 배우기 Cloud Shell 및 Cloud SDK gcloud 명령어를 사용하는 방법에 대해 배우기 실습 Cloud Shell은 GCP에서 호...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/gsp002-ch3/" class="btn btn-outline-primary"><p>[GSP002] CH3. Getting Started with Cloud Shell and gcloud</p></a> <a href="/posts/gsp100-ch4/" class="btn btn-outline-primary"><p>[GSP100] CH4. Kubernetes Engine: Qwik Start</p></a></div></div></div></div><footer class="d-flex w-100 justify-content-center"><div class="d-flex justify-content-between align-items-center"><div class="footer-left"><p class="mb-0"> © 2021 <a href="https://github.com/username">BaeSoomin</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div><div class="footer-right"><p class="mb-0"> Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy/" target="_blank" rel="noopener">Chirpy</a> theme.</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-xl-11 post-content"><div id="search-hints"><h4 class="text-muted mb-4">Trending Tags</h4><a class="post-tag" href="/tags/python/">Python</a> <a class="post-tag" href="/tags/today/">today</a> <a class="post-tag" href="/tags/dl/">DL</a> <a class="post-tag" href="/tags/ml/">ML</a> <a class="post-tag" href="/tags/math/">Math</a> <a class="post-tag" href="/tags/cv/">CV</a> <a class="post-tag" href="/tags/imageclassification/">ImageClassification</a> <a class="post-tag" href="/tags/graph/">Graph</a> <a class="post-tag" href="/tags/%EA%B5%AC%EA%B8%80-%EC%8A%A4%ED%84%B0%EB%94%94%EC%9E%BC/">구글 스터디잼</a> <a class="post-tag" href="/tags/nlp/">NLP</a></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } }, tex2jax: { inlineMath: [ ['$', '$'] ], displayMath: [ ['$$', '$$'] ], processEscapes: true, } }); MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) { alert("Math Processing Error: "+message[1]); }); MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) { alert("Math Processing Error: "+message[1]); }); </script> <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a> <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="https://bsm8734.github.io{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"><div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>{categories}</div><div><i class="fa fa-tag fa-fw"></i>{tags}</div></div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No result founds.</p>' }); </script>

@@ -1,0 +1,335 @@
+<!DOCTYPE html><html lang="en" mode="light" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="theme" content="Chirpy v2.7.2"><meta name="generator" content="Jekyll v4.2.0" /><meta property="og:title" content="[부스트캠프 AI Tech / Day6] 파이썬 Numpy" /><meta name="author" content="Bae Soomin" /><meta property="og:locale" content="en_US" /><meta name="description" content="[DAY 6] Numpy" /><meta property="og:description" content="[DAY 6] Numpy" /><link rel="canonical" href="https://bsm8734.github.io/posts/bc-d006-1-python-numpy/" /><meta property="og:url" content="https://bsm8734.github.io/posts/bc-d006-1-python-numpy/" /><meta property="og:site_name" content="Always Awake Sally" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2021-01-25T00:00:00+09:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="[부스트캠프 AI Tech / Day6] 파이썬 Numpy" /><meta name="twitter:site" content="@twitter_username" /><meta name="twitter:creator" content="@Bae Soomin" /><meta name="google-site-verification" content="google_meta_tag_verification" /> <script type="application/ld+json"> {"author":{"@type":"Person","name":"Bae Soomin"},"description":"[DAY 6] Numpy","url":"https://bsm8734.github.io/posts/bc-d006-1-python-numpy/","@type":"BlogPosting","headline":"[부스트캠프 AI Tech / Day6] 파이썬 Numpy","dateModified":"2021-03-30T03:40:57+09:00","datePublished":"2021-01-25T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://bsm8734.github.io/posts/bc-d006-1-python-numpy/"},"@context":"https://schema.org"}</script><title>[부스트캠프 AI Tech / Day6] 파이썬 Numpy | Always Awake Sally</title><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="apple-touch-icon" href="/assets/img/favicons/apple-icon.png"><link rel="apple-touch-icon" href="/assets/img/favicons/apple-icon-precomposed.png"><link rel="apple-touch-icon" sizes="57x57" href="/assets/img/favicons/apple-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="/assets/img/favicons/apple-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicons/apple-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicons/apple-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicons/apple-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicons/apple-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicons/apple-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="/assets/img/favicons/apple-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-icon-180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicons/android-icon-192x192.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicons/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/img/favicons/manifest.json"><meta name='msapplication-config' content='/assets/img/favicons/browserconfig.xml'><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/assets/img/favicons/ms-icon-144x144.png"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://fonts.gstatic.com"><link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials"><link rel="dns-prefetch" href="https://www.google-analytics.com"><link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="preconnect" href="cdn.jsdelivr.net"><link rel="dns-prefetch" href="cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous"><link rel="preload" href="/assets/css/post.css" as="style"><link rel="stylesheet" href="/assets/css/post.css"><link rel="preload" as="style" href="/assets/css/lib/bootstrap-toc.min.css"><link rel="stylesheet" href="/assets/css/lib/bootstrap-toc.min.css" /> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script> <script defer src="https://cdn.jsdelivr.net/combine/npm/popper.js@1.15.0,npm/bootstrap@4/dist/js/bootstrap.min.js"></script> <script async src="/assets/js/post.min.js"></script> <script defer src="/app.js"></script> <script defer src="https://www.googletagmanager.com/gtag/js?id="></script> <script> document.addEventListener("DOMContentLoaded", function(event) { window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', ''); }); </script><body data-spy="scroll" data-target="#toc"><div id="sidebar" class="d-flex flex-column align-items-end"><div class="profile-wrapper text-center"><div id="avatar"> <a href="/" alt="avatar" class="mx-auto"> <img src="/assets/img/my_image/Sally_wallpaper.jpg" alt="avatar" onerror="this.style.display='none'"> </a></div><div class="site-title mt-3"> <a href="/">Always Awake Sally</a></div><div class="site-subtitle font-italic">24시간이 모자라</div></div><ul class="w-100"><li class="nav-item"> <a href="/" class="nav-link"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item"> <a href="/tabs/categories/" class="nav-link"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item"> <a href="/tabs/tags/" class="nav-link"> <i class="fa-fw fas fa-tags ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item"> <a href="/tabs/archives/" class="nav-link"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item"> <a href="/tabs/about/" class="nav-link"> <i class="fa-fw fas fa-info ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul><div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center"> <a href="https://github.com/bsm8734" aria-label="github" target="_blank" rel="noopener"> <i class="fab fa-github-alt"></i> </a> <a href="https://twitter.com/twitter_username" aria-label="twitter" target="_blank" rel="noopener"> <i class="fab fa-twitter"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['bsm8734','naver.com'].join('@')" aria-label="email" > <i class="fas fa-envelope"></i> </a> <a href="/feed.xml" aria-label="rss" > <i class="fas fa-rss"></i> </a></div></div><div id="topbar-wrapper" class="row justify-content-center topbar-down"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/"> Posts </a> </span> <span>[부스트캠프 AI Tech / Day6] 파이썬 Numpy</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" placeholder="Search..."> <i class="fa fa-times-circle fa-fw" id="search-cleaner"></i> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper"><div id="main"><div class="row"><div id="post-wrapper" class="col-12 col-lg-11 col-xl-8"><div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><h1 data-toc-skip>[부스트캠프 AI Tech / Day6] 파이썬 Numpy</h1><div class="post-meta text-muted d-flex flex-column"><div> <span class="timeago " data-toggle="tooltip" data-placement="bottom" title="Mon, Jan 25, 2021, 12:00 AM +0900" > Jan 25 <i class="unloaded">2021-01-25T00:00:00+09:00</i> </span> by <span class="author"> Bae Soomin </span></div><div> <span> Updated <span class="timeago lastmod" data-toggle="tooltip" data-placement="bottom" title="Tue, Mar 30, 2021, 3:40 AM +0900" > Mar 30 <i class="unloaded">2021-03-30T03:40:57+09:00</i> </span> </span> <span class="readtime" data-toggle="tooltip" data-placement="bottom" title="3215 words">17 min</span></div></div><div class="post-content"><h2 id="day-6-numpy"><strong>[DAY 6] Numpy</strong></h2><hr /><h3 id="numpy"><strong>Numpy</strong></h3><ul><li>Numerical Python<li>파이썬의 고성능 과학 계산용 패키지<li>matrix, vector와 같은 array 연산의 사실상 표준<li>특징<ul><li>일반 list에 비해 빠르고, 메모리 효율적<li>반복문 없이 데이터 배열에 대한 처리를 지원함<li>선형대수와 관련된 다양한 기능을 제공함<li>C, C++, 포트란 등의 언어와 통합 가능</ul><li>어떻게 행렬과 매트릭스를 코드로 표현할 것인가 ➡ 리스트 형태<li>코드로 방정식 표현하기 ➡ 파이썬의 라이브러리 활용<ul><li>다양한 matrix 계산하기<li>큰 matrix에 대한 표현<li>처리속도문제 - python은 interpreter 언어</ul><li><strong><code class="language-plaintext highlighter-rouge">import numpy as np</code></strong><ul><li>numpy의 호출방법<li>일반적으로 numpy는 np라는 alias(별칭) 이용하여 호출</ul></ul><blockquote><p>$2𝑥_1 + 2𝑥_2 + 𝑥_3 = 9$<br /> $2𝑥_1 − 𝑥_2 + 2𝑥_3 = 6$<br /> $𝑥_1 − 𝑥_2 + 2𝑥_3 = 5$</p><p>[2, 2, 1, 9]<br /> [2, -1, 2, 6]<br /> [1, -1, 2, 5]</p><p>coefficient_matrix = [ [2, 2, 1], [2, -1, 2], [1, -1, 2] ]<br /> constant_vector = [9, 6, 5]</p></blockquote><p><br /></p><hr /><h3 id="ndarray"><strong>ndarray</strong></h3><h4 id="ndarray-생성"><strong>ndarray 생성</strong></h4><ul><li>numpy는 <strong>np.array 함수를 활용하여 배열을 생성</strong>함 ➡ <strong>ndarray 객체</strong><li>numpy는 <strong>하나의 데이터 type만 배열에 넣을 수 있음</strong><ul><li>다른 데이터 형식이 들어와도 형변환해서 들어가게 됨</ul><li>list와 가장 큰 차이점 ➡ dynamic typing not supported<li>C의 array를 사용하여 배열을 생성함<ul><li><p><strong><code class="language-plaintext highlighter-rouge">np.array([리스트], dtype)</code></strong></p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre><span class="n">test_array</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="nb">float</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">test_array</span><span class="p">)</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="n">test_array</span><span class="p">)</span>
+<span class="c1">#numpy.ndarray
+</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">test_array</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="c1"># numpy.float
+</span></pre></table></code></div></div></ul></ul><h4 id="python-array-vs-numpy"><strong>python <code class="language-plaintext highlighter-rouge">array</code> vs <code class="language-plaintext highlighter-rouge">numpy</code></strong></h4><ul><li><strong>python array</strong><ul><li>python은 -5~256의 값<li>계속 가리키게됨<li><p>리스트의 변형이 굉장히 쉬움</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># True - 서로 같은 메모리 주소를 가리키기 때문임
+</span></pre></table></code></div></div></ul><li><strong>numpy ndarray</strong><ul><li>numpy는 그냥 옆에 담음<li><p>메모리의 위치를 고려하여 더할 수 있으므로 메모리 접근성 좋음</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># False - 서로 다른 메모리 주소를 가리키기 때문임
+</span></pre></table></code></div></div></ul></ul><p><br /></p><hr /><h3 id="shape"><strong>shape</strong></h3><ul><li>shape: numpy array의 dimension 구성을 반환함<li><p>dtype: numpy array의 데이터 type을 반환함</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre><td class="rouge-code"><pre><span class="n">test_array</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s">"8"</span><span class="p">],</span> <span class="nb">float</span><span class="p">)</span> <span class="c1"># string type의 데이터를 입력해도 
+</span><span class="n">test_array</span>
+<span class="c1"># array([1., 4., 5., 8.])
+</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">test_array</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="c1"># float type으로 자동 형변환을 실시
+# numpy.float64
+</span>
+<span class="n">test_array</span><span class="p">.</span><span class="n">dtype</span> <span class="c1"># array(배열) 전체의 데이터 type을 반환함
+# dtype('float64')
+</span>
+<span class="n">test_array</span><span class="p">.</span><span class="n">shape</span> <span class="c1"># array(배열)의 shape을 tuple 타입으로 반환함
+# (4,)
+</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
+<span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">a</span><span class="p">).</span><span class="n">shape</span>
+<span class="c1"># (3, 3) 3 by 3 matrix 임을 tuple형태로 알려줌
+</span></pre></table></code></div></div></ul><h4 id="rank"><strong>rank</strong></h4><ul><li>rank name: array의 rank에 따라 불리는 이름이 있음<ul><li>0: scalar (dimension이 없음)<li>1: vector<li>2: matrix<li>3: 3-tensor<li>n: n-tensor(n order tensor)<ul><li>선형대수에서 값을 표현하는 방법</ul></ul></ul><h4 id="array-shape"><strong>array shape</strong></h4><ul><li>matrix<ul><li><code class="language-plaintext highlighter-rouge">a = [ , , , ]</code><ul><li><code class="language-plaintext highlighter-rouge">(4,)</code></ul><li><code class="language-plaintext highlighter-rouge">b = [[ , , ], [ , , ], [ , , ]]</code><ul><li><code class="language-plaintext highlighter-rouge">(3, 4)</code></ul></ul><li>ndim (=rank, number of dimensions)<li>size (=data, element)의 개수</ul><h4 id="array-dtype"><strong>array dtype</strong></h4><ul><li><strong>dtype: ndarray의 single element가 가지는 data type</strong><li>numpy는 한가지 타입만 저장할 수 있음<li>각 element가 차지하는 memory의 크기가 결정됨<li>ex<ul><li>dtype=int<li>dtype=np.float32</ul></ul><blockquote><p>int64: 2^63(패리티 비트 빠짐) 표현가능</p></blockquote><h4 id="array-nbytes"><strong>array nbytes</strong></h4><ul><li><p>nbyte (=ndarray object)의 메모리 크기를 반환함</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre>  <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">float32</span><span class="p">).</span><span class="n">nbyte</span>
+  <span class="c1"># 32bits = 4bytes # 6*4 bytes
+</span>
+  <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">int8</span><span class="p">).</span><span class="n">nbyte</span>
+  <span class="c1"># 8bits = 1bytes # 6*1 bytes
+</span>
+  <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">float64</span><span class="p">).</span><span class="n">nbyte</span>
+  <span class="c1"># 64bits = 8bytes # 8*4 bytes
+</span></pre></table></code></div></div></ul><p><br /></p><hr /><h3 id="shape-handling"><strong>shape handling</strong></h3><h4 id="reshape"><strong>reshape</strong></h4><ul><li>array의 <strong>shape의 크기를 변경</strong>함, <strong>element의 갯수는 동일</strong><li><p><strong>동일한 사이즈가 나오게 하도록 shape을 변경</strong>함</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre><td class="rouge-code"><pre><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">test_matrix</span><span class="p">).</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">).</span><span class="n">shape</span>
+<span class="c1"># (2, 4) ➡ (8,)
+# [[ , , , ][ , , , ]] ➡ [ , , , , , , , ]
+</span>
+<span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">test_matrix</span><span class="p">).</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">).</span><span class="n">shape</span>
+<span class="c1"># -1 : size를 기반으로 row 개수를 선정
+</span>
+<span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">test_matrix</span><span class="p">).</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">).</span><span class="n">shape</span>
+<span class="c1"># (1, 4, 2)
+</span></pre></table></code></div></div></ul><h4 id="flatten"><strong>flatten</strong></h4><ul><li>다차원 array를 1차원 array로 변환(한줄로 펴줌)<li>(2, 2, 4) ➡ (16,)</ul><h4 id="indexing--slicing"><strong>indexing &amp; slicing</strong></h4><ul><li><strong>indexing</strong><ul><li>list와 달리(<code class="language-plaintext highlighter-rouge">[0][0]</code>) 이차원 배열에서 <code class="language-plaintext highlighter-rouge">[0,0]</code> 표기법을 제공함<li>matrix 일 경우, 앞은 row, 뒤는 column을 의미함<li>start:end:step<li><code class="language-plaintext highlighter-rouge">arr[:, ::2]</code> # 짝수열만 가져옴</ul><li><strong>slicing</strong><ul><li>list와 달리 행과 열 부분을 나눠서 slicng이 가능함<li><p>matrix의 부분집합을 추출할 때 유용함</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre><td class="rouge-code"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]],</span> <span class="nb">int</span><span class="p">)</span>
+<span class="n">a</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:]</span> <span class="c1"># 전체 Row의 2열 이상
+</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>    <span class="c1"># array([6, 7, 8, 9, 10])
+</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># 1 Row의 1열 ~ 2열 # array([[6, 7, 8, 9, 10]])
+</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># 1 Row ~ 2Row의 전체
+# [행, 열]
+</span></pre></table></code></div></div><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre><td class="rouge-code"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">).</span><span class="n">reshape</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">a</span>
+<span class="c1"># array ([[0, 1, ... , 9],
+#
+#
+#        [90, 91, ... , 99]])
+</span>
+<span class="n">a</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># array([9, 19, 29, ..., 99])
+</span></pre></table></code></div></div></ul></ul><hr /><h3 id="creation-function"><strong>creation function</strong></h3><h4 id="arange"><strong>arange</strong></h4><ul><li><p><strong>array의 범위를 지정하여, 값의 list를 생성</strong>하는 명령어</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre><td class="rouge-code"><pre><span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>         <span class="c1"># 0~29까지의 배열 추출 int
+</span>
+<span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span> <span class="c1"># floating point도 표시 가능
+#(start, end, step)
+</span>
+<span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">30</span><span class="p">).</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</pre></table></code></div></div></ul><h4 id="ones-zeros-empty"><strong>ones, zeros, empty</strong></h4><ul><li><strong>zeros: 0으로 가득찬 ndarray 생성</strong><li><strong>ones: 1으로 가득찬 ndarray 생성</strong><li><strong>empty: shape만 주어지고 비어있는 ndarray 생성</strong><ul><li>memory initialization이 되지 않음<li>이전에 그 자리에 쓰인 값이 있었다면, 그 값을 동일하게 가져옴<li>Garbage Collection이 실행되면 메모리가 풀리는데, 그 메모리는 초기화되지 않은 채로 풀리게 되므로, 쓰레기 값이 들어가있을 수 있음</ul><li>셋은 동일하게 사용<ul><li>(shape, dtype, order)</ul><li><code class="language-plaintext highlighter-rouge">np.zeros(shape=(10,), dtype=np.int8)</code><ul><li>(10,)의 zero vector 생성</ul><li>shape은 항상 tuple값으로 들어감<li><code class="language-plaintext highlighter-rouge">np.zeros((2, 5))</code><ul><li>(2, 5)의 zero matrix 생성</ul></ul><h4 id="somthing_like"><strong>somthing_like</strong></h4><ul><li>기존 ndarray의 shape 크기만큼 1, 0 또는 empty array를 반환<ul><li><code class="language-plaintext highlighter-rouge">np.ones_like()</code><li><code class="language-plaintext highlighter-rouge">np.zeros_like()</code><li><code class="language-plaintext highlighter-rouge">np.empty_like()</code></ul><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre><span class="n">test_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">sarange</span><span class="p">(</span><span class="mi">30</span><span class="p">).</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">np</span><span class="p">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">test_matrix</span><span class="p">)</span>
+</pre></table></code></div></div></ul><h4 id="identity"><strong>identity</strong></h4><ul><li>단위행렬(I 행렬)을 생성함<li><strong>단위행렬: 대각행렬이 1인 행렬</strong><li><code class="language-plaintext highlighter-rouge">np.identity(n=3, dtype=np.int8)</code> (n: number of rows)<li><code class="language-plaintext highlighter-rouge">np.identity(5)</code></ul><h4 id="eye"><strong>eye</strong></h4><ul><li>대각선이 1인 행렬, k값을 설정하여, 어디서부터 1을 시작할지 선택 가능<li><p>시작하는 index의 변경이 가능(1행의 k열부터 1, <code class="language-plaintext highlighter-rouge">a[1][k] == 1</code>)</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre><td class="rouge-code"><pre><span class="n">np</span><span class="p">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="s">"""
+array([[1., 0., 0.]
+       [0., 1., 0.]
+       [0., 0., 1.]])
+"""</span>
+
+<span class="n">np</span><span class="p">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># 마지막: 시작열
+</span><span class="s">"""
+array([[0., 0., 1., 0., 0.]
+       [0., 0., 0., 1., 0.]
+       [0., 0., 0., 0., 1.]])
+"""</span>
+
+<span class="n">np</span><span class="p">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">int8</span><span class="p">)</span>
+<span class="s">"""
+array([[1, 0, 0, 0, 0]
+       [0, 1, 0, 0, 0]
+       [0, 0, 1, 0, 0]], dtype=int8)
+"""</span>
+</pre></table></code></div></div></ul><h4 id="diag"><strong>diag</strong></h4><ul><li><p>대각행렬의 값을 추출함</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre><td class="rouge-code"><pre><span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">).</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">np</span><span class="p">.</span><span class="n">diag</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+<span class="c1"># array([0, 4, 8])
+</span>
+<span class="n">np</span><span class="p">.</span><span class="n">diag</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># k: start index
+# array([1, 5])
+</span></pre></table></code></div></div></ul><h4 id="random-sampling"><strong>random sampling</strong></h4><ul><li><strong>데이터분포에 따른 sampling으로 array를 생성</strong><li><p>모수값이 중요(언제 어떻게 쓰이는데? - 더 알아보기)</p><li><strong>균등분포(uniform)</strong><ul><li><code class="language-plaintext highlighter-rouge">np.random.uniform(0, 1, 10).reshape(2, 5)</code><li>uniform(모수값(시작), 모수값(끝), 사이즈(데이터 수))<li>시작~끝까지 균등한 확률로 값을 뽑아줌<li>확률 분포별로 랜덤값 생성</ul><li><strong>정규분포(normal)</strong><ul><li><code class="language-plaintext highlighter-rouge">np.random.normal(0, 1, 10).shape(2, 5)</code></ul><li><strong>지수분포(exponential)</strong><ul><li><code class="language-plaintext highlighter-rouge">np.random.exponential(scale)=2, size=100)</code></ul></ul><hr /><h3 id="operation-function"><strong>operation function</strong></h3><h4 id="sum"><strong>sum</strong></h4><ul><li><p><strong>ndarray의 element들 간의 합</strong>을 구함, list의 sum 기능과 동일</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre><span class="c1"># sum
+</span><span class="n">test_array</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span> <span class="c1"># array([1, 2, ..., 10])
+</span><span class="n">test_array</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="nb">float</span><span class="p">)</span> <span class="c1"># 55.0
+# mean, std, sqrt, exp도 있음 : 통계학에서 사용하는 연산이 많이 들어가있음
+# mathematical functions 찾아보기, 강의노트 p55
+</span>
+<span class="nb">sum</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span> <span class="c1"># 와 비슷함
+</span></pre></table></code></div></div></ul><h4 id="axis"><strong>axis</strong></h4><ul><li>모든 operation <strong>function을 실행할 때 기준이 되는 dimension 축</strong><li>(3, 4) : (axis=0, axis=1)<ul><li>axis=1 : 가로로 작동<li>axis=0 : 세로로 작동<li>ex) test_array.sum(axis=1) : 가로로 더한 값을 반환함</ul><li><strong>항상 새로 생긴 축이 axis=0</strong>이 된다고 생각하기</ul><h4 id="concatenate"><strong>concatenate</strong></h4><ul><li><strong>numpy array를 합치는, 붙이는 함수</strong><li>vstack: 세로로 붙임<li><p>hstack: 가로로 붙임</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre><td class="rouge-code"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+
+<span class="n">np</span><span class="p">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span> <span class="c1"># vertical
+# array([[1, 2, 3],[2, 3, 4]])
+</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">]])</span>
+
+<span class="n">np</span><span class="p">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span> <span class="c1"># horizontal
+# array([[1, 2],[2, 3],[3, 4]])
+</span></pre></table></code></div></div><li>concatenate / axis = 0: 붙였을 때 생성되는 axis (== ➡ ㅡ)<li><div class="table-wrapper"><table><tbody><tr><td>concatenate / axis = 1: 붙였을 때 생성되는 axis (<td> <td>➡<td>)</table></div><li><code class="language-plaintext highlighter-rouge">concatenate((a, b), axis=0)</code><li><strong>인자로 넣은 축이 줄어든다고 생각!</strong></ul><h4 id="축을-추가하는-방법"><strong>축을 추가하는 방법</strong></h4><ul><li><p>np.newaxis</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+
+<span class="n">b</span><span class="p">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1"># array([[5, 6]])
+</span>
+<span class="n">b</span><span class="p">[</span><span class="n">np</span><span class="p">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span>
+<span class="c1"># array([[5, 6]])
+</span></pre></table></code></div></div></ul><h4 id="array-operations"><strong>array operations</strong></h4><ul><li>numpy는 array간의 기본적인 사칙연산을 지원</ul><h5 id="element-wise-operations-용어-중요-"><strong>element-wise operations</strong> (용어 중요 🔥)</h5><ul><li><strong>array간 shape가 같을 때 일어나는 연산</strong><li><strong>결과값은 matrix</strong>(input과 동일한 shape)</ul><h5 id="dot-product"><strong>Dot product</strong></h5><ul><li>matrix의 기본연산, dot 함수 사용<li>행렬간 곱셈연산<li>a.dot(b)<li><code class="language-plaintext highlighter-rouge">[X,Y].dot([Y,Z]) =&gt; [X,Z]</code></ul><h5 id="transpose전치행렬"><strong>transpose(전치행렬)</strong></h5><ul><li>transpose 또는 T attribute 사용<li>dot product 사용하기 편함<li>행렬의 행과 열을 변경해줌<li>matrix간 곱셈<ul><li><code class="language-plaintext highlighter-rouge">a.T.dot(a)</code></ul></ul><h5 id="broadcasting"><strong>broadcasting</strong></h5><ul><li><strong>shape이 다른 배열 간 연산을 지원</strong>하는 기능<ul><li>같으면 그냥 element wise operation 진행</ul><li><u>서로의 row, col로 크기를 확장하여 맞추고, 연산하는 것</u><li>matrix + scalar인 경우, matrix의 모든 값에 scalar의 값이 더해짐<li>scalar-vector 외에도 vector-matrix간의 연산도 지원</ul><blockquote><p>여기서 scalar는 그냥 value임, <code class="language-plaintext highlighter-rouge">array([1,])</code> 뭐 이런거 아님</p></blockquote><hr /><h3 id="comparisions">comparisions</h3><p>numpy array들 간의 비교</p><h4 id="all--any">all &amp; any</h4><ul><li><code class="language-plaintext highlighter-rouge">np.any(a&gt;5)</code><ul><li>broadcasting 실행됨<li><code class="language-plaintext highlighter-rouge">a &gt; 5</code>: True or False의 boolean array가 나옴<li>all or any에 대한 조건탐색 함</ul></ul><h4 id="comparison-operation">comparison operation</h4><ul><li>비교 operation<ul><li>numpy는 배열의 크기가 동일할 때, <strong>element간 비교의 결과를 boolean type value 1개로 반환</strong><li><code class="language-plaintext highlighter-rouge">(a &gt; b).any()</code> : True<li>broadcasting, element wise operation 일어남</ul></ul><h4 id="logical_and"><strong>logical_and</strong></h4><ul><li><code class="language-plaintext highlighter-rouge">np.logical_and( a&gt;0, a&lt;3 )</code><li><strong>두 인자가 모두 boolean 타입</strong>인 경우, and 조건의 condition<li><strong>각각 element wise 비교</strong><li><code class="language-plaintext highlighter-rouge">np.logical_not(b)</code><li><code class="language-plaintext highlighter-rouge">np.logical_or(b)</code></ul><h4 id="where"><strong>where</strong></h4><h5 id="npwherecondition-true-false"><code class="language-plaintext highlighter-rouge">np.where(condition, True, False)</code></h5><ul><li>배열을 반환함<li>방식<ul><li>1) 데이터의 개수만큼,<ul><li>t, f ➡ t인 경우에 두번째 인자가 리턴<li>t, f ➡ f인 경우에 세번째 인자를 그 자리에 넣어서 결국 배열을 리턴</ul><li>2) 인자를 하나만 넣어서, 조건에 맞는 인덱스 값들의 배열을 리턴<ul><li>튜플형태로 반환</ul></ul></ul><h5 id="npisnana"><code class="language-plaintext highlighter-rouge">np.isnan(a)</code></h5><ul><li>not a number<li>조건을 찾는 것<li>메모리의 값이 존재하지 않는 경우를 찾음</ul><h5 id="npisfinitea"><code class="language-plaintext highlighter-rouge">np.isfinite(a)</code></h5><ul><li>is finite number<li>한정되지 않은 값을 찾는 것<li><p>발산하는 경우를 찾음</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="n">NaN</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="n">Inf</span><span class="p">],</span> <span class="nb">float</span><span class="p">)</span>
+<span class="n">np</span><span class="p">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="c1"># array([False, True, False])
+</span></pre></table></code></div></div></ul><h4 id="argmax--argmin"><strong>argmax &amp; argmin</strong></h4><ul><li><strong><code class="language-plaintext highlighter-rouge">argmax, argmin</code></strong><ul><li>array 내의 최대값 또는 최소값의 index를 반환함</ul><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre><td class="rouge-code"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">np</span><span class="p">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">np</span><span class="p">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="c1"># (5, 0)
+</span>  
+<span class="n">a</span><span class="p">[</span><span class="n">np</span><span class="p">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">a</span><span class="p">)]</span> <span class="c1"># 1
+</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">],[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">45</span><span class="p">],[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="n">np</span><span class="p">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="p">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># |:0, ㅡ:1
+# (array([3, 1, 1]), array([0, 0, 2, 2]))
+</span></pre></table></code></div></div><li><strong><code class="language-plaintext highlighter-rouge">a.argsort()</code></strong><ul><li>array([0, 1, 7, 2, 3, 4, 6, 5])</ul></ul><hr /><h3 id="boolean--fancy-index"><strong>boolean &amp; fancy index</strong></h3><ul><li>특정 조건에 따른 값을 배열 형태로 추출<li>comparison operation함수들도 모두 사용가능</ul><h4 id="boolean-index"><strong>boolean index</strong></h4><ul><li><strong>condition: boolean list 사용</strong><li>사용하고자하는 두 배열의 shape이 같아야함<li>boolean array가 들어가서 데이터를 쿼리해오는 것(가져오는 것)<li>특정 조건(condition)에 따름<li><code class="language-plaintext highlighter-rouge">b[a&gt;3]</code><ul><li>a&gt;3:조건(condition), 결과:TF array<li>true인 인덱스에 있는 값만 빼줄 수 있음<li>a, b 두 배열의 shape이 동일해야함</ul></ul><h4 id="fancy-index">fancy index</h4><ul><li>bool 대신 index값을 넣어줌<li><strong>condition: integer list 사용</strong><li>사용하고자하는 두 배열의 shape이 같지않아도 됨<ul><li>그러나 찾고자하는 인덱스의 값(인자 배열의 values)이 대상배열의 크기를 벗어나면 안됨</ul><li><code class="language-plaintext highlighter-rouge">a[b]</code><ul><li>b는 반드시 integer로 선언</ul><li><code class="language-plaintext highlighter-rouge">a.take(b)</code><ul><li>take함수: bracket index와 같은 효과</ul><li><p>matrix 형태의 데이터도 가능</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre><td class="rouge-code"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">]],</span> <span class="nb">float</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="nb">int</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="nb">int</span><span class="p">)</span>
+
+<span class="n">a</span><span class="p">[</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="c1"># b를 row index, c를 column index로 변환하여 표시함
+# array([1., 4., 16., 16., 4.])
+</span>
+<span class="n">a</span><span class="p">[</span><span class="n">b</span><span class="p">]</span>
+<span class="c1"># row만 넣어주면, row 값만 가져옴
+# array([[1., 4.], [1., 4.], [9., 16.], [9., 16.], [1., 4.]])
+</span></pre></table></code></div></div></ul><hr /><h3 id="numpy-data-io">numpy data I/O</h3><p>persistence ?</p><h4 id="loadtxt--savetxt">loadtxt &amp; savetxt</h4><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre><td class="rouge-code"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s">"./filename.txt"</span><span class="p">)</span> <span class="c1"># csv같은
+</span><span class="n">a</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+
+<span class="c1"># int type 변환
+</span><span class="n">a_int</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">a_int</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="c1"># int_data.csv로 저장
+</span><span class="n">np</span><span class="p">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s">'int_data.csv'</span><span class="p">,</span> <span class="n">a_int</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">','</span><span class="p">)</span>
+<span class="c1"># 파일명, 저장하고싶은 array, 데이터 저장하는/자르는 기준값
+</span>
+<span class="n">np</span><span class="p">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s">'int_data.csv'</span><span class="p">,</span> <span class="n">a_int</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s">"%.2e"</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">','</span><span class="p">)</span>
+<span class="c1"># 소수점 2자리까지 저장
+</span>
+<span class="c1">#################333
+# numpy object - npy
+</span><span class="n">np</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="s">"npy_teset_object"</span><span class="p">,</span> <span class="n">arr</span><span class="o">=</span><span class="n">a_int</span><span class="p">)</span> <span class="c1"># pickle 저장
+</span><span class="n">a_test</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="nb">file</span><span class="o">=</span><span class="s">"npy_teset_object.npy"</span><span class="p">)</span>
+<span class="n">a_test</span>
+</pre></table></code></div></div><hr /><h3 id="etc"><strong>ETC</strong></h3><h4 id="numpy-performance"><strong>numpy performance</strong></h4><ul><li><strong>timeit</strong>: jupyter 환경에서 코드의 퍼포먼스를 체크하는 함수<li>일반적으로 속도는 아래와 같은 순서로 빠름<ul><li><strong><code class="language-plaintext highlighter-rouge">for loop &lt; list comprehension &lt; numpy</code></strong><li>numpy가 list보다 빠름<li>100,000,000번의 loop를 돌 때, 약 4배 이상의 성능차이를 보임<li><u>numpy는 c로 구현되어있어, 성능을 확보하는 대신, 파이썬의 가장 큰 특징인 dynamic typing을 포기함</u><li>대용량 계산에서 가장 흔히 사용됨<li>concatenate처럼 계산이아닌 할당에서는 연산 속도의 이점이 없음</ul></ul></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/categories/%EB%84%A4%EC%9D%B4%EB%B2%84-%EB%B6%80%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%94%84-ai-tech/'>네이버 부스트캠프 AI Tech</a>, <a href='/categories/python/'>Python</a></div><div class="post-tags"> <i class="fa fa-tags fa-fw mr-1"></i> <a href="/tags/python/" class="post-tag no-text-decoration" >Python</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=[부스트캠프 AI Tech / Day6] 파이썬 Numpy - Always Awake Sally&url=https://bsm8734.github.io/posts/bc-d006-1-python-numpy/" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=[부스트캠프 AI Tech / Day6] 파이썬 Numpy - Always Awake Sally&u=https://bsm8734.github.io/posts/bc-d006-1-python-numpy/" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://telegram.me/share?text=[부스트캠프 AI Tech / Day6] 파이썬 Numpy - Always Awake Sally&url=https://bsm8734.github.io/posts/bc-d006-1-python-numpy/" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i class="fa-fw fas fa-link small" onclick="copyLink()" data-toggle="tooltip" data-placement="top" title="Copy link"></i> </span></div></div></div></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted topbar-down"><div class="access"><div id="access-lastmod" class="post"> <span>Recent Update</span><ul class="post-content pl-0 pb-1 ml-1 mt-2"><li><a href="/posts/bc-stage1-d002-lecture/">[부스트캠프 AI Tech / P Stage1] Lecture2 - Dataset & Data Generation</a><li><a href="/posts/bc-stage1-d002-TIL/">[부스트캠프 AI Tech / P Stage1] Day2 TIL</a><li><a href="/posts/bc-d002-5-python-condition-loop/">[부스트캠프 AI Tech / Day2] 파이썬 조건문, 반복문</a><li><a href="/posts/bc-d002-6-python-string/">[부스트캠프 AI Tech / Day2] 파이썬 String</a><li><a href="/posts/bc-d002-today/">[부스트캠프 AI Tech / Day2] Today</a></ul></div><div id="access-tags"> <span>Trending Tags</span><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/python/">Python</a> <a class="post-tag" href="/tags/today/">today</a> <a class="post-tag" href="/tags/dl/">DL</a> <a class="post-tag" href="/tags/ml/">ML</a> <a class="post-tag" href="/tags/math/">Math</a> <a class="post-tag" href="/tags/cv/">CV</a> <a class="post-tag" href="/tags/imageclassification/">ImageClassification</a> <a class="post-tag" href="/tags/graph/">Graph</a> <a class="post-tag" href="/tags/%EA%B5%AC%EA%B8%80-%EC%8A%A4%ED%84%B0%EB%94%94%EC%9E%BC/">구글 스터디잼</a> <a class="post-tag" href="/tags/nlp/">NLP</a></div></div></div><div id="toc-wrapper" class="pl-0 pr-4 mb-5"> <span class="pl-3 pt-2 mb-2">Contents</span><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div class="col-12 col-lg-11 col-xl-8"><div id="post-extend-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/bc-d002-5-python-condition-loop/"><div class="card-body"> <span class="timeago small" > Jan 19 <i class="unloaded">2021-01-19T00:00:00+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>[부스트캠프 AI Tech / Day2] 파이썬 조건문, 반복문</h3><div class="text-muted small"><p> [DAY 2] Conditionals and Loops 조건문 (Conditionals) 조건문: 조건에 따라 특정한 동작을 하게하는 명령어 조건문은 조건을 나타내는 기준과 실행해야 할 명령으로 구성됨 조건의 참, 거짓에 따라 실행해야 할 명령이 수행되거나 되지 않음 파이썬은 조건문으로 if , else , elif 등의 예약어...</p></div></div></a></div><div class="card"> <a href="/posts/bc-d002-6-python-string/"><div class="card-body"> <span class="timeago small" > Jan 19 <i class="unloaded">2021-01-19T00:00:00+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>[부스트캠프 AI Tech / Day2] 파이썬 String</h3><div class="text-muted small"><p> [DAY 2] String 문자열(string) 시퀀스 자료형 ➡ 문자형 데이터를 메모리에 저장 list와 비슷한 구조 ➡ 1byte의 메모리가 순차적으로 나열되어있다고 생각 영문 1글자 = 1byte 인덱싱(Indexing) 문자열의 각 문자는 개별주소(offset)를 가짐 ➡ 이 주소를 사용하여 할당된 값을 가져오는 ...</p></div></div></a></div><div class="card"> <a href="/posts/bc-d003-1-python-stack-queue/"><div class="card-body"> <span class="timeago small" > Jan 20 <i class="unloaded">2021-01-20T00:00:00+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>[부스트캠프 AI Tech / Day3] 파이썬 Stack & Queue</h3><div class="text-muted small"><p> [DAY 3] Stack &amp; Queue Python Data Structure 특징이 있는 정보를 저장하는 방법 파이썬 기본 데이터 구조 스택과 큐(stack &amp; queue with list) 튜플과 집합(tuple &amp; set) 사전(dictionary) Coll...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/bc-d006-3-aimath-matrix/" class="btn btn-outline-primary"><p>[부스트캠프 AI Tech / Day6] Math_AI 행렬</p></a> <a href="/posts/bc-d007-1-aimath-gradient-descent-easy/" class="btn btn-outline-primary"><p>[부스트캠프 AI Tech / Day7] Math_AI 경사하강법(순한맛)</p></a></div></div></div></div><footer class="d-flex w-100 justify-content-center"><div class="d-flex justify-content-between align-items-center"><div class="footer-left"><p class="mb-0"> © 2021 <a href="https://github.com/username">BaeSoomin</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div><div class="footer-right"><p class="mb-0"> Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy/" target="_blank" rel="noopener">Chirpy</a> theme.</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-xl-11 post-content"><div id="search-hints"><h4 class="text-muted mb-4">Trending Tags</h4><a class="post-tag" href="/tags/python/">Python</a> <a class="post-tag" href="/tags/today/">today</a> <a class="post-tag" href="/tags/dl/">DL</a> <a class="post-tag" href="/tags/ml/">ML</a> <a class="post-tag" href="/tags/math/">Math</a> <a class="post-tag" href="/tags/cv/">CV</a> <a class="post-tag" href="/tags/imageclassification/">ImageClassification</a> <a class="post-tag" href="/tags/graph/">Graph</a> <a class="post-tag" href="/tags/%EA%B5%AC%EA%B8%80-%EC%8A%A4%ED%84%B0%EB%94%94%EC%9E%BC/">구글 스터디잼</a> <a class="post-tag" href="/tags/nlp/">NLP</a></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } }, tex2jax: { inlineMath: [ ['$', '$'] ], displayMath: [ ['$$', '$$'] ], processEscapes: true, } }); MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) { alert("Math Processing Error: "+message[1]); }); MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) { alert("Math Processing Error: "+message[1]); }); </script> <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a> <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="https://bsm8734.github.io{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"><div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>{categories}</div><div><i class="fa fa-tag fa-fw"></i>{tags}</div></div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No result founds.</p>' }); </script>
